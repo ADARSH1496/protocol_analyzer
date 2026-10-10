@@ -1,0 +1,16 @@
+tfm_secureboot_s:
+  use_sysbuild: true
+  section-type: application
+  contents:
+    meta_path: examples/tfm_examples/tfm_secureboot_s
+    project-root-path: boards/${board}/tfm_examples/tfm_secureboot/tfm_secureboot_s
+    document:
+      name: tfm_secureboot_s${core_id_suffix_name}
+      category: tfm_examples
+      brief: The Trusted Firmware M (TF-M) PSA Dev API test application provides verification
+        that secure service API behaviours are implemented correctly. This is secure
+        part of the application.
+      example_readme:
+      - examples/tfm_examples/tfm_secureboot_s/readme.md
+      - ${board_root}/${board}/tfm_examples/tfm_secureboot/tfm_secureboot_s/example_board_readme.md
+  boards: {}

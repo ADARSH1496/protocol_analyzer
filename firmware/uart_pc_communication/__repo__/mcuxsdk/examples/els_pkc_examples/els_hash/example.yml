@@ -1,0 +1,16 @@
+els_hash:
+  section-type: application
+  contents:
+    meta_path: examples/els_pkc_examples/els_hash/.
+    project-root-path: boards/${board}/els_pkc_examples/els_hash/${multicore_foldername}
+    document:
+      name: els_hash${core_id_suffix_name}
+      category: els_pkc_examples
+      brief: The ELS PKC application provides examples which demonstrate usage of
+        hash algorithms and a crypto library lightweight testing.
+      example_readme:
+      - examples/els_pkc_examples/els_hash/readme.md
+      - ${board_root}/${board}/els_pkc_examples/els_hash/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxn236: []

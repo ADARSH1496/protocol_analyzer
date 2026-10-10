@@ -1,0 +1,60 @@
+# Copyright 2024 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+# TOOLCHAIN EXTENSION
+# Use CMAKE_HOST_WIN32 (not WIN32): WIN32 tracks the cross-compile target (CMAKE_SYSTEM_NAME=Generic)
+# and goes false when the toolchain file is processed twice, wrongly clearing TOOLCHAIN_EXT.
+if(CMAKE_HOST_WIN32)
+    set(TOOLCHAIN_EXT ".exe")
+else()
+    set(TOOLCHAIN_EXT "")
+endif()
+
+# EXECUTABLE EXTENSION
+set(CMAKE_EXECUTABLE_SUFFIX ".elf")
+
+# TOOLCHAIN_DIR AND NANO LIBRARY
+set(TOOLCHAIN_DIR $ENV{XCC_DIR})
+string(REGEX REPLACE "\\\\" "/" TOOLCHAIN_DIR "${TOOLCHAIN_DIR}")
+
+if(NOT TOOLCHAIN_DIR)
+    if(MCUX_SKIP_COMPILER_CHECKS)
+        set(TOOLCHAIN_DIR "")
+    else()
+        message(FATAL_ERROR "***Please set XCC_DIR in environment variables***")
+    endif()
+endif()
+set(XCC_DIR ${TOOLCHAIN_DIR})
+
+message(STATUS "TOOLCHAIN_DIR: " ${TOOLCHAIN_DIR})
+if(NOT XTENSA_CORE)
+    set(XTENSA_CORE $ENV{XTENSA_CORE})
+endif()
+if(NOT XTENSA_SYSTEM)
+    set(XTENSA_SYSTEM $ENV{XTENSA_SYSTEM})
+    if(NOT XTENSA_SYSTEM)
+        set(XTENSA_SYSTEM ${TOOLCHAIN_DIR}/config)
+    endif()
+endif()
+
+# TARGET_TRIPLET
+set(TARGET_TRIPLET "xt")
+
+set(TOOLCHAIN_BIN_DIR ${TOOLCHAIN_DIR}/bin)
+
+set(CMAKE_C_COMPILER ${TOOLCHAIN_BIN_DIR}/${TARGET_TRIPLET}-clang${TOOLCHAIN_EXT})
+set(CMAKE_CXX_COMPILER ${TOOLCHAIN_BIN_DIR}/${TARGET_TRIPLET}-clang++${TOOLCHAIN_EXT})
+set(CMAKE_ASM_COMPILER ${TOOLCHAIN_BIN_DIR}/${TARGET_TRIPLET}-clang${TOOLCHAIN_EXT})
+set(CMAKE_C_COMPILER_FORCED TRUE)
+set(CMAKE_CXX_COMPILER_FORCED TRUE)
+
+set(CMAKE_OBJCOPY
+    ${TOOLCHAIN_BIN_DIR}/${TARGET_TRIPLET}-objcopy
+    CACHE INTERNAL "objcopy tool")
+set(CMAKE_OBJDUMP
+    ${TOOLCHAIN_BIN_DIR}/${TARGET_TRIPLET}-objdump
+    CACHE INTERNAL "objdump tool")
+
+
+set(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN_DIR}/${TARGET_TRIPLET} ${EXTRA_FIND_PATH})

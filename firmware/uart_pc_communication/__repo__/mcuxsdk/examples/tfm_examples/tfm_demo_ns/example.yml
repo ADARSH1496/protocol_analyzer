@@ -1,0 +1,15 @@
+tfm_demo_ns:
+  use_sysbuild: true
+  section-type: application
+  contents:
+    meta_path: examples/tfm_examples/tfm_demo_ns
+    project-root-path: boards/${board}/tfm_examples/tfm_demo/tfm_demo_ns
+    document:
+      name: tfm_demo_ns${core_id_suffix_name}
+      category: tfm_examples
+      brief: The Trusted Firmware M (TF-M) demo application provides a sanity check
+        for the TF-M core and RoT services. It can be used as a template for a new
+        application which requires functionality of the TF-M Secure Services. This
+        is non-secure part of the application.
+  boards:
+    frdmmcxn236: []

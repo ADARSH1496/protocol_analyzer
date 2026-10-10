@@ -1,0 +1,12 @@
+NXP Software Content Register
+
+Package: mcux-metering
+Version: 4.1.0
+Outgoing License: LA_OPT_Online_Code_Hosting
+License File: LICENSE
+Type of content: source code
+Description and comments: NXP metering middleware
+Release Location: https://github.com/nxp-mcuxpresso/mcux-metering
+Origin:
+      NXP (Proprietary)
+

@@ -1,0 +1,17 @@
+smartdma_camera_flexio_mculcd:
+  section-type: application
+  contents:
+    meta_path: examples/display_examples/smartdma_camera_flexio_mculcd
+    project-root-path: boards/${board}/display_examples/smartdma_camera_flexio_mculcd/${multicore_foldername}
+    document:
+      name: smartdma_camera_flexio_mculcd${core_id_suffix_name}
+      category: display_examples
+      brief: This example uses smartDMA to get image data from camera interface frame
+        by frame captured by OV7670, and uses FlexIO LCD interface to display the
+        captured image on st7796s low cost panel.
+      example_readme:
+      - examples/display_examples/smartdma_camera_flexio_mculcd/readme.md
+      - ${board_root}/${board}/display_examples/smartdma_camera_flexio_mculcd/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxn236: []

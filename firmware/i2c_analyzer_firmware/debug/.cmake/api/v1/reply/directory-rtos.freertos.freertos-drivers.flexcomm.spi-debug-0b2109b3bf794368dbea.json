@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "rtos/freertos/freertos-drivers/flexcomm/spi",
+		"source" : "C:/SDK/frdm_mcxn236/mcuxsdk/rtos/freertos/freertos-drivers/flexcomm/spi"
+	}
+}

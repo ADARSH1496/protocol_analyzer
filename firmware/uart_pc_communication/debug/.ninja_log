@@ -1,0 +1,25 @@
+# ninja log v7
+96	273	8133595617749236	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/gcc/startup_MCXN236.S.obj	286278789a5f9f25
+86	399	8133595617657696	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj	4ee13e06b3e8d231
+240	414	8133595619198973	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_memset.S.obj	e475a4eb6551d8e9
+129	445	8133595618060300	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/common/fsl_common.c.obj	c1f4f43fa24e2c01
+221	453	8133595619006559	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_sbrk.c.obj	e264ea6bdbd9c8d9
+232	461	8133595619098527	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_memcpy.S.obj	b87f26f59c0c1bc4
+142	462	8133595618208822	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/common/fsl_common_arm.c.obj	d5cccde27a4625e8
+119	462	8133595617981974	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj	a43642b48249e066
+209	463	8133595618891127	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_syscall_stub.c.obj	22dacf3e907ef126
+154	475	8133595618335021	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/gpio/fsl_gpio.c.obj	327fcdadbd3ed237
+163	488	8133595618414937	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj	43b78954764278e6
+188	490	8133595618677028	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/assert/fsl_assert.c.obj	2debdc1b646eca47
+199	515	8133595618779827	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/debug_console_lite/fsl_debug_console.c.obj	e1085e681d45261b
+181	540	8133595618577419	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj	64700556d04a3cf0
+171	551	8133595618485176	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj	8ec1b4aaf96ef4c4
+262	553	8133595619411012	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj	ae4845f1e7a0d510
+107	563	8133595617859866	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj	868e2f2409944435
+275	567	8133595619541600	CMakeFiles/uart_pc_communication.dir/frdmmcxn236/frdmmcxn236/board.c.obj	eefbabea9dd61786
+251	690	8133595619304487	CMakeFiles/uart_pc_communication.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/str/fsl_str.c.obj	25b54edece35740d
+414	691	8133595620927488	CMakeFiles/uart_pc_communication.dir/frdmmcxn236/polling/pin_mux.c.obj	48414889ddfe42f6
+453	720	8133595621320137	CMakeFiles/uart_pc_communication.dir/lpuart_polling.c.obj	8f71e2175c84e76c
+446	721	8133595621248278	CMakeFiles/uart_pc_communication.dir/frdmmcxn236/polling/hardware_init.c.obj	e26985bb86b7b206
+400	721	8133595620784918	CMakeFiles/uart_pc_communication.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj	c3243f35096ec1a3
+721	1165	8133595623946268	uart_pc_communication.elf	7a150f723014a512

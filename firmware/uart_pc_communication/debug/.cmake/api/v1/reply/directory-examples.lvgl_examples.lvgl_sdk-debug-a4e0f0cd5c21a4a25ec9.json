@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "examples/lvgl_examples/lvgl_sdk",
+		"source" : "C:/SDK/frdm_mcxn236/mcuxsdk/examples/lvgl_examples/lvgl_sdk"
+	}
+}

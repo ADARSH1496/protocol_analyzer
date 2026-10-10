@@ -1,0 +1,13 @@
+el2go_import_blob:
+  section-type: application
+  contents:
+    meta_path: examples/el2go_examples/el2go_import_blob/el2go_import_blob
+    project-root-path: boards/${board}/el2go_examples/el2go_import_blob/el2go_import_blob
+    document:
+      name: el2go_import_blob
+      category: el2go_examples
+      brief: The EL2GO import blob application is used to import blobs from flash
+        and test them
+      example_readme:
+      - examples/el2go_examples/el2go_import_blob/el2go_import_blob/readme.md
+  boards: {}

@@ -1,0 +1,15 @@
+sd_jpeg:
+  section-type: application
+  contents:
+    meta_path: examples/display_examples/sd_jpeg
+    project-root-path: boards/${board}/display_examples/sd_jpeg/${multicore_foldername}
+    document:
+      name: sd_jpeg${core_id_suffix_name}
+      category: display_examples
+      brief: The SD JPEG Demo application reads the JPEG pictures from the SD card,
+        decodesthem, and shows them in the LCD panel one by one.
+      example_readme:
+      - examples/display_examples/sd_jpeg/readme.md
+      - ${board_root}/${board}/display_examples/sd_jpeg/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards: {}

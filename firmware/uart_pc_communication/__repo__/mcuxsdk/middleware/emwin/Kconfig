@@ -1,0 +1,17 @@
+#
+# Copyright 2024-2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+menu "emWin"
+    config MCUX_COMPONENT_middleware.emwin.template
+        bool "template"
+        help
+            This option will enable emWin template for new project getting started
+
+    config MCUX_COMPONENT_middleware.emwin
+        bool "core"
+        help
+            This option will enable emWin core middleware component
+endmenu

@@ -1,0 +1,4 @@
+Overview
+========
+The serial_terminal demo shows how to use emWin library to render text. Connect using serial terminal application to debug console and type text.
+Please note that this example does not make use of receive buffer thus this example cannot handle larger amout of text pasted to the terminal at a time.

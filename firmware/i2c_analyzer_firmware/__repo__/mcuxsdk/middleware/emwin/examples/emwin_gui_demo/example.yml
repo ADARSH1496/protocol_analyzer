@@ -1,0 +1,11 @@
+emwin_gui_demo:
+  section-type: application
+  contents:
+    meta_path: middleware/emwin/examples/emwin_gui_demo
+    project-root-path: boards/${board}/emwin_examples/emwin_gui_demo/${multicore_foldername}
+    document:
+      name: emwin_gui_demo${core_id_suffix_name}
+      category: emwin_examples
+      brief: The example demonstrates graphical widgets of the emWin library.
+  boards:
+    frdmmcxn236: []

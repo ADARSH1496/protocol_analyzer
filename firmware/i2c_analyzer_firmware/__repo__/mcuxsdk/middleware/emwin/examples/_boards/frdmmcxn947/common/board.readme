@@ -1,0 +1,21 @@
+Hardware requirements
+===================
+- Type-C USB cable
+- FRDM-MCXN947 board
+- Personal Computer
+- TFT Proto 5" CAPACITIVE board HW REV 1.01 by Mikroelektronika.
+
+Board settings
+============
+Attach the LCD shield to the FRDM board.
+
+Prepare the Demo
+===============
+1.  Connect a type-c USB cable between the PC host and the MCU-Link USB port (J17) on the board
+2.  Build the project.
+3.  Download the program to the target board.
+4.  Reset the SoC and run the project.
+
+Running the demo
+===============
+If this example runs correctly, the sample GUI is displayed.

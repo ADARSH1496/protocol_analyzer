@@ -1,0 +1,14 @@
+littlefs_shell:
+  section-type: application
+  contents:
+    meta_path: examples/littlefs_examples/littlefs_shell
+    project-root-path: boards/${board}/littlefs_examples/littlefs_shell/${multicore_foldername}
+    document:
+      name: littlefs_shell${core_id_suffix_name}
+      category: littlefs_examples
+      brief: Demonstrates littlefs functionality by commands executed from shell.
+      example_readme:
+      - examples/littlefs_examples/littlefs_shell/readme.md
+      - ${board_root}/${board}/littlefs_examples/littlefs_shell/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards: {}

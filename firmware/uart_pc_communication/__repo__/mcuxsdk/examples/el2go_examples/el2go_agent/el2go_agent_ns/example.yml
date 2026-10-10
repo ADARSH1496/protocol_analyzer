@@ -1,0 +1,14 @@
+el2go_agent_ns:
+  use_sysbuild: true
+  section-type: application
+  contents:
+    meta_path: examples/el2go_examples/el2go_agent/el2go_agent_ns
+    project-root-path: boards/${board}/el2go_examples/el2go_agent/el2go_agent_ns
+    document:
+      name: el2go_agent_ns
+      category: el2go_examples
+      brief: The EL2GO Agent Demo examples allow user to connect to EL2GO and provision
+        secure objects to the chip
+      example_readme:
+      - examples/el2go_examples/el2go_agent/el2go_agent_ns/readme.md
+  boards: {}

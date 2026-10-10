@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "devices/MCX/MCXN/MCXN236/drivers",
+		"source" : "C:/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers"
+	}
+}

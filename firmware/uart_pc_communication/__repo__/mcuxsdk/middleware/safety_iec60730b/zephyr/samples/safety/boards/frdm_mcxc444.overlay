@@ -1,0 +1,19 @@
+/*
+ * Copyright 2025 NXP
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/ {
+	aliases {
+		test-counter = &lptmr0;
+	};
+};
+
+&lptmr0 {
+	status = "okay";
+};
+
+/* COP does not support run-time configuration, so disable it */
+&cop {
+	status = "disabled";
+};

@@ -1,0 +1,16 @@
+mbedtls3x_psatest:
+  section-type: application
+  contents:
+    meta_path: examples/mbedtls3x_examples/mbedtls3x_psatest
+    project-root-path: boards/${board}/mbedtls3x_examples/mbedtls3x_psatest/${core_id}
+    document:
+      name: mbedtls3x_psatest${core_id_suffix_name}
+      category: mbedtls3x_examples
+      brief: The Mbed-TLS PSA Dev API test application provides verification that
+        the crypto API behaviours are implemented correctly.
+      example_readme:
+      - examples/mbedtls3x_examples/mbedtls3x_psatest/readme.md
+      - ${board_root}/${board}/mbedtls3x_examples/mbedtls3x_psatest/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxn236: []

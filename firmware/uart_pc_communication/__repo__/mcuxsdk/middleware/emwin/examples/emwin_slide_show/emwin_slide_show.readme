@@ -1,0 +1,7 @@
+Overview
+========
+The example demonstrates graphical widgets of the emWin library.
+
+Running the demo
+================
+When the demo runs successfully, the object on the LCD screen react to your touch.

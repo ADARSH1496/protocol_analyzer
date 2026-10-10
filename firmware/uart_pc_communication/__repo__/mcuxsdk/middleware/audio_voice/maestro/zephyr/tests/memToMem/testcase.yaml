@@ -1,0 +1,20 @@
+common:
+  tags:
+    - audio
+    - maestro
+  integration_platforms:
+    - rd_rw612_bga
+  arch_allow: arm
+tests:
+  maestro.test.system.mem2mem:
+    tags:
+     - audio
+     - maestro
+    harness: console
+    harness_config:
+      type: one_line
+      regex:
+        - "(.*)Result: OK(.*)"
+    timeout: 1
+    min_flash: 52
+    min_ram: 52

@@ -1,0 +1,12 @@
+#
+# Copyright 2024 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
+menu "Multicore SDK"
+    orsource "rpmsg-lite/Kconfig"
+    orsource "mcmgr/Kconfig"
+    orsource "erpc/mcux/Kconfig"
+    orsource "remoteproc/Kconfig"
+endmenu

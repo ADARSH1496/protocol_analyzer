@@ -1,0 +1,18 @@
+pwt_1_example:
+  section-type: application
+  contents:
+    meta_path: examples/driver_examples/pwt_1
+    project-root-path: boards/${board}/driver_examples/pwt_1/${multicore_foldername}
+    document:
+      name: pwt_1_example${core_id_suffix_name}
+      category: driver_examples/pwt_1
+      brief: The PWT project is a simple demonstration program of the SDK PWT driver.
+        It sets up the PWT hardware block to edge detection, capture control part
+        and detects measurement trigger edges andcontrols when and which pulse width
+        register(s) will be updated. Once the input signal is received,this example
+        will print overflow flag status, positive pulse width and negative pulse width.
+      example_readme:
+      - examples/driver_examples/pwt_1/readme.md
+      - ${board_root}/${board}/driver_examples/pwt_1/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards: {}

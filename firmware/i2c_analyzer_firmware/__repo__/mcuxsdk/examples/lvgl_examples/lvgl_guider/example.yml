@@ -1,0 +1,15 @@
+lvgl_guider:
+  section-type: application
+  contents:
+    meta_path: examples/lvgl_examples/lvgl_guider/.
+    project-root-path: boards/${board}/lvgl_examples/lvgl_guider/${multicore_foldername}
+    document:
+      name: lvgl_guider${core_id_suffix_name}
+      category: lvgl_examples
+      brief: LittleVGL project used with GUI Guider.
+      example_readme:
+      - examples/lvgl_examples/lvgl_guider/readme.md
+      - ${board_root}/${board}/lvgl_examples/lvgl_examples_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxn236: []

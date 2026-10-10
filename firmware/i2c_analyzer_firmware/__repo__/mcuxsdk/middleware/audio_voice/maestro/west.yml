@@ -1,0 +1,35 @@
+# Maestro west manifest
+#
+# Description:
+#   Used for setting up maestro directly from Zephyr manifest
+#
+# Append into the Zephyr's manifest, project part:
+#   - name: maestro
+#     url: <this repository URL>
+#     path: modules/audio/maestro
+#     revision: <revision or branch>
+#     import: west.yml
+#
+# For more information, see zephyr/README.rst
+#
+
+manifest:
+  version: "1.2"
+
+  projects:
+    # Audio libraries used by Maestro
+    - name: vit
+      description: |
+        VIT library making voice recognition.
+      url: https://github.com/nxp-mcuxpresso/VIT
+      path: modules/audio/vit
+      revision: 24.12.00
+
+    - name: audio_voice_components
+      description: |
+        NXP audio libraries (encoders, decoders, libraries)
+      url: https://github.com/nxp-mcuxpresso/audio-voice-components
+      path: modules/audio/audio_voice_components
+      revision: 24.12.00
+  self:
+    path: maestro

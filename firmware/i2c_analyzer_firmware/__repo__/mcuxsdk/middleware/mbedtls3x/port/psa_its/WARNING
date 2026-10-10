@@ -1,0 +1,9 @@
+When using this module, do remember that the PSA persistent key
+meta data used by PSA Slot management implementation is being stored
+in plain format here. So this should be used at your own discretion.
+
+For ELE4xx module, the key ID and attributes are also maintained by
+the ELE implementation. So there is not much RISK if someone manipulates
+this metadata. Else TFM with its ITS implementation or more robust
+storage implementation should be used.
+

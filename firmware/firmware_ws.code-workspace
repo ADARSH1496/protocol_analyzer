@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "i2c_analyzer_firmware",
+			"path": "i2c_analyzer_firmware"
+		},
+		{
+			"name": "uart_pc_communication",
+			"path": "uart_pc_communication"
+		}
+	],
+	"settings": {}
+}

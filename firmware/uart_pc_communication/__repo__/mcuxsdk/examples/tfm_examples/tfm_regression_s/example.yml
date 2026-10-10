@@ -1,0 +1,16 @@
+tfm_regression_s:
+  use_sysbuild: true
+  section-type: application
+  contents:
+    meta_path: examples/tfm_examples/tfm_regression_s
+    project-root-path: boards/${board}/tfm_examples/tfm_regression/tfm_regression_s
+    document:
+      name: tfm_regression_s${core_id_suffix_name}
+      category: tfm_examples
+      brief: The Trusted Firmware M (TF-M) regression test application provides testing
+        of the TF-M core and its RoT services. This is secure part of the application.
+      example_readme:
+      - examples/tfm_examples/tfm_regression_s/readme.md
+      - ${board_root}/${board}/tfm_examples/tfm_regression/tfm_regression_s/example_board_readme.md
+  boards:
+    frdmmcxn236: []

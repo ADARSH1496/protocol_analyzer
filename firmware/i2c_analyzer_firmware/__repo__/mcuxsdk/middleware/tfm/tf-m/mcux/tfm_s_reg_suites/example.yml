@@ -1,0 +1,13 @@
+tfm_s_reg_suites:
+  section-type: library
+  skip_build: true
+  contents:
+    meta_path: middleware/tfm/tf-m/mcux/tfm_s_reg_suites
+    project-root-path: boards/${board}/lib_projects/tfm_s_reg_suites
+    document:
+      name: tfm_s_reg_suites${core_id_suffix_name}
+      category: tfm_examples
+      brief: tfm_s_reg_suites built to be used in tfm_secure part, providing additional
+        partitions and tests for tfm_regression application.
+  boards:
+    frdmmcxn236: []

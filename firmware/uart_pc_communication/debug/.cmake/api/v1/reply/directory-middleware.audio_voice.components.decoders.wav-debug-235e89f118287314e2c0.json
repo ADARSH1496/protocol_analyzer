@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "middleware/audio_voice/components/decoders/wav",
+		"source" : "C:/SDK/frdm_mcxn236/mcuxsdk/middleware/audio_voice/components/decoders/wav"
+	}
+}

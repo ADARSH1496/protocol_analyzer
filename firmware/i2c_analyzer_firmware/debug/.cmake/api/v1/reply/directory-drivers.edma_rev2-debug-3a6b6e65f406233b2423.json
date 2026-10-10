@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "drivers/edma_rev2",
+		"source" : "C:/SDK/frdm_mcxn236/mcuxsdk/drivers/edma_rev2"
+	}
+}

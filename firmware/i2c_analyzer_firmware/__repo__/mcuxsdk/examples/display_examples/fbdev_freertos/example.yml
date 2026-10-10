@@ -1,0 +1,18 @@
+fbdev_freertos:
+  section-type: application
+  contents:
+    meta_path: examples/display_examples/fbdev_freertos
+    project-root-path: boards/${board}/display_examples/fbdev_freertos/${multicore_foldername}
+    document:
+      name: fbdev_freertos${core_id_suffix_name}
+      category: display_examples
+      brief: This example shows how to use the fbdev component. The fbdev masks the
+        difference of LCD controllers and provides a unified APIs for upper layers.
+        At the same time, the frame buffers are managed by the FBDEV. When the example
+        runs, you can see a rectangle moving in the screen, and its color changes
+        when reached the border.
+      example_readme:
+      - examples/display_examples/fbdev_freertos/readme.md
+      - ${board_root}/${board}/display_examples/fbdev_freertos/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards: {}

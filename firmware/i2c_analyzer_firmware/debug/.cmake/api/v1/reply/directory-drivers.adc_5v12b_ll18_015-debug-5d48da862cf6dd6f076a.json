@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "drivers/adc_5v12b_ll18_015",
+		"source" : "C:/SDK/frdm_mcxn236/mcuxsdk/drivers/adc_5v12b_ll18_015"
+	}
+}

@@ -1,0 +1,1 @@
+C:\_git\_mcx\protocol_analyzer\firmware\uart_pc_communication\debug\mcux_config.h

@@ -1,0 +1,13 @@
+tfm_s_crypto_clients:
+  section-type: library
+  skip_build: true
+  contents:
+    meta_path: middleware/tfm/tf-m/mcux/tfm_s_crypto_clients
+    project-root-path: boards/${board}/lib_projects/tfm_s_crypto_clients
+    document:
+      name: tfm_s_crypto_clients${core_id_suffix_name}
+      category: tfm_examples
+      brief: tfm_s_crypto_clients built to be used in tfm_secure part, providing partitions
+        that want to use crypto as clients, while still residing in secure area.
+  boards:
+    frdmmcxn236: []

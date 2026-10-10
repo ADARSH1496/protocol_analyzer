@@ -1,0 +1,10 @@
+emwin_temperature_control:
+  section-type: application
+  contents:
+    meta_path: middleware/emwin/examples/emwin_temperature_control
+    project-root-path: boards/${board}/emwin_examples/emwin_temperature_control
+    document:
+      name: emwin_temperature_control${core_id_suffix_name}
+      category: emwin_examples
+      brief: The example demonstrates graphical widgets of the emWin library.
+  boards: {}

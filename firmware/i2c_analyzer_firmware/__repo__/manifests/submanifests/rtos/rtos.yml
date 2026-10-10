@@ -1,0 +1,223 @@
+manifest:
+  remotes:
+  - name: nxp
+    url-base: https://github.com/NXP
+  - name: nxp-zephyr
+    url-base: https://github.com/nxp-zephyr
+  - name: nxp-mcuxpresso
+    url-base: https://github.com/nxp-mcuxpresso
+  defaults:
+    remote: nxp-mcuxpresso
+  projects:
+  - name: freertos-kernel
+    path: mcuxsdk/rtos/freertos/freertos-kernel
+    revision: 47394c9248c9f608da8147d04034e89414fd3429
+    groups:
+    - freertos
+    - rtos
+    - ble_nxp
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: MCUX FreeRTOS
+      description: MCUX FreeRTOS
+  - name: freertos-kernel-upstream
+    url: https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+    path: mcuxsdk/rtos/freertos/freertos-kernel-upstream
+    revision: 0adc196d4bd52a2d91102b525b0aafc1e14a2386
+    groups:
+    - freertos
+    - rtos
+    - ble_nxp
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: FreeRTOS Upstream
+      description: FreeRTOS Upstream
+  - name: mcux-freertos-drivers
+    userdata:
+      owner: david.jurajda@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: FreeRTOS Drivers
+      description: FreeRTOS peripheral drivers for MCUXpresso SDK
+    path: mcuxsdk/rtos/freertos/freertos-drivers
+    revision: 64537e57abbce5c83c53e758deab8cf0df6ab202
+    groups:
+    - rtos
+    - freertos
+  - name: corepkcs11
+    path: mcuxsdk/rtos/freertos/corepkcs11
+    revision: 98f20a3aae25a80127434569b9d2fe2ffd903789
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: MCUX FreeRTOS corePKCS11
+      description: 'PKCS #11 key management library'
+    groups:
+    - freertos
+    - aws_iot
+  - name: corepkcs11-upstream
+    path: mcuxsdk/rtos/freertos/corepkcs11-upstream
+    url: https://github.com/FreeRTOS/corePKCS11.git
+    revision: eed7d3141dbccbbe70c9716f6744c9ec0758a37a
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: FreeRTOS corePKCS11 Upstream
+      description: 'PKCS #11 key management library'
+    groups:
+    - freertos
+    - aws_iot
+  - name: coremqtt
+    path: mcuxsdk/rtos/freertos/coremqtt
+    revision: cdbda6575d6abde6393e001fd67aa6d1e6eca63c
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: MCUX FreeRTOS coreMQTT
+      description: MQTT publish/subscribe messaging library
+    groups:
+    - freertos
+    - aws_iot
+  - name: coremqtt-upstream
+    url: https://github.com/FreeRTOS/coreMQTT.git
+    path: mcuxsdk/rtos/freertos/coremqtt-upstream
+    revision: 2beef04725328923e05e576b884212d53ec97af7
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: FreeRTOS coreMQTT Upstream
+      description: MQTT publish/subscribe messaging library
+    groups:
+    - freertos
+    - aws_iot
+  - name: corejson
+    path: mcuxsdk/rtos/freertos/corejson
+    revision: 9fe2a951eb0b0390e2d305ed545d9742286d9134
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: MCUX FreeRTOS coreJSON
+      description: JSON parser
+    groups:
+    - freertos
+    - aws_iot
+  - name: corejson-upstream
+    url: https://github.com/FreeRTOS/coreJSON.git
+    path: mcuxsdk/rtos/freertos/corejson-upstream
+    revision: e3b7663f6392d8c10e8db57506ec37e4801b145a
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: FreeRTOS coreJSON Upstream
+      description: JSON parser
+    groups:
+    - freertos
+    - aws_iot
+  - name: corehttp
+    path: mcuxsdk/rtos/freertos/corehttp
+    revision: 23f21353ab276fd7b6417cde725d83c1803c4efb
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: MCUX coreHTTP
+      description: MCUX coreHTTP
+    groups:
+    - freertos
+    - aws_iot
+  - name: corehttp-upstream
+    url: https://github.com/FreeRTOS/coreHTTP.git
+    path: mcuxsdk/rtos/freertos/corehttp-upstream
+    revision: 12adee81ddef588abada91672b34fd997b2a27ac
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: coreHTTP Upstream
+      description: coreHTTP Upstream
+    groups:
+    - freertos
+    - aws_iot
+  - name: backoffalgorithm
+    path: mcuxsdk/rtos/freertos/backoffalgorithm
+    revision: 1cdcee0df0f298134c098f053a532e47bfb061dc
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: MCUX FreeRTOS backoffalgorithm
+      description: Algorithm for calculating exponential backoff with jitter for network
+        retry attempts.
+    groups:
+    - freertos
+    - aws_iot
+  - name: backoffalgorithm-upstream
+    url: https://github.com/FreeRTOS/backoffAlgorithm.git
+    path: mcuxsdk/rtos/freertos/backoffalgorithm-upstream
+    revision: 3cc0bf8c4d41d7cd7aa2f1ded5075c87bf6b2bbb
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: FreeRTOS backoffalgorithm Upstream
+      description: Algorithm for calculating exponential backoff with jitter for network
+        retry attempts.
+    groups:
+    - freertos
+    - aws_iot
+  - name: freertos-plus-tcp
+    path: mcuxsdk/rtos/freertos/freertos-plus-tcp
+    revision: 60186a67da9427603b3b86b1a24881af949d2fdf
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: freertos-plus-tcp
+      description: MCUX FreeRTOS-Plus-TCP Library
+    groups:
+    - freertos
+  - name: freertos-plus-tcp-upstream
+    url: https://github.com/FreeRTOS/FreeRTOS-Plus-TCP.git
+    path: mcuxsdk/rtos/freertos/freertos-plus-tcp-upstream
+    revision: 2788dbb9328e934616c129e7a6f105c368320bf0
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: freertos-plus-tcp-upstream
+      description: FreeRTOS-Plus-TCP Library Upstream
+    groups:
+    - freertos
+  - name: lab-project-freertos-posix
+    path: mcuxsdk/rtos/freertos/lab-project-freertos-posix
+    revision: b8fe3930e37d9ef84af56dd26df000bc638ad4aa
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: true
+      display_name: lab-project-freertos-posix
+      description: MCUX FreeRTOS+POSIX Library
+    groups:
+    - freertos
+  - name: lab-project-freertos-posix-upstream
+    url: https://github.com/FreeRTOS/Lab-Project-FreeRTOS-POSIX.git
+    path: mcuxsdk/rtos/freertos/lab-project-freertos-posix-upstream
+    revision: 14ee4b2c7c34f2663c6f083080d3e4a2d30171ec
+    userdata:
+      owner: michal.princ@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: lab-project-freertos-posix-upstream
+      description: FreeRTOS+POSIX Library
+    groups:
+    - freertos

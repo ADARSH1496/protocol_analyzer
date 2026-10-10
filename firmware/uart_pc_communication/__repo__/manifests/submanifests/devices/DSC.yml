@@ -1,0 +1,22 @@
+manifest:
+  remotes:
+  - name: nxp
+    url-base: https://github.com/NXP
+  - name: nxp-zephyr
+    url-base: https://github.com/nxp-zephyr
+  - name: nxp-mcuxpresso
+    url-base: https://github.com/nxp-mcuxpresso
+  defaults:
+    remote: nxp-mcuxpresso
+  projects:
+  - name: mcux-devices-dsc
+    revision: 9c68d8b50f2d86de31f09449e08bde155d21b7ef
+    path: mcuxsdk/devices/DSC
+    groups:
+    - core
+    userdata:
+      track_branch: release/26.06.00-lts
+      branch_flow: true
+      display_name: DSC Series Device Files
+      description: Device system files, template files, IDE related startup and linker
+        files.

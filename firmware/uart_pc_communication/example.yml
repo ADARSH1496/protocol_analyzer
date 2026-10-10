@@ -1,0 +1,17 @@
+lpuart_polling:
+  boards:
+    frdmmcxn236: []
+  contents:
+    document:
+      brief: The lpuart_polling Example project is to demonstrate usage of the KSDK
+        lpuart driver.In the example, you can send characters to the console back
+        and they will be printed out onto console instantly.
+      category: driver_examples/lpuart
+      example_readme:
+      - examples/driver_examples/lpuart/polling/readme.md
+      - ${board_root}/${board}/driver_examples/lpuart/polling/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+      name: lpuart_polling${core_id_suffix_name}
+    meta_path: examples/driver_examples/lpuart/polling
+    project-root-path: boards/${board}/driver_examples/lpuart/polling/${multicore_foldername}
+  section-type: freestanding_application

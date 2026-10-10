@@ -1,0 +1,4 @@
+C:/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.h:1235:20:CLOCK_EnableClock	24	static
+C:/SDK/frdm_mcxn236/mcuxsdk/drivers/port/fsl_port.h:360:20:PORT_SetPinConfig	32	static
+C:/_git/_mcx/protocol_analyzer/firmware/uart_pc_communication/frdmmcxn236/polling/pin_mux.c:35:6:BOARD_InitBootPins	8	static
+C:/_git/_mcx/protocol_analyzer/firmware/uart_pc_communication/frdmmcxn236/polling/pin_mux.c:61:6:BOARD_InitPins	16	static

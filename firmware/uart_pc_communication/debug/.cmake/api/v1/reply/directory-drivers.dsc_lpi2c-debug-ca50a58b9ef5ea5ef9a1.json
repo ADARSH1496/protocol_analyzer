@@ -1,0 +1,19 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "drivers/dsc_lpi2c",
+		"source" : "C:/SDK/frdm_mcxn236/mcuxsdk/drivers/dsc_lpi2c"
+	}
+}

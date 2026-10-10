@@ -1,0 +1,14 @@
+mipi_dsi_compliant_test:
+  section-type: application
+  contents:
+    meta_path: examples/display_examples/mipi_dsi_compliant_test
+    project-root-path: boards/${board}/display_examples/mipi_dsi_compliant_test/${multicore_foldername}
+    document:
+      name: mipi_dsi_compliant_test${core_id_suffix_name}
+      category: display_examples
+      brief: This project is used for MIPI DSI compliant test.
+      example_readme:
+      - examples/display_examples/mipi_dsi_compliant_test/readme.md
+      - ${board_root}/${board}/display_examples/mipi_dsi_compliant_test/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards: {}

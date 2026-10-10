@@ -1,0 +1,15 @@
+prp_switch:
+  section-type: application
+  contents:
+    meta_path: examples/driver_examples/netc/prp_switch
+    project-root-path: boards/${board}/driver_examples/netc/prp_switch/${multicore_foldername}
+    document:
+      name: prp_switch${core_id_suffix_name}
+      category: driver_examples/netc
+      brief: The FreeRTOS PRP (Parallel Redundancy Protocol) project is a demonstration
+        of implementing the IEC 62439-3 PRP protocol using FreeRTOS.
+      example_readme:
+      - examples/driver_examples/netc/prp_switch/readme.md
+      - ${board_root}/${board}/driver_examples/netc/prp_switch/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards: {}

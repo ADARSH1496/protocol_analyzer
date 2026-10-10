@@ -1,0 +1,154 @@
+# Copyright 2024-2025 NXP
+# SPDX-License-Identifier: BSD-3-Clause
+
+menuconfig MCUX_COMPONENT_middleware.lvgl
+    bool "LVGL"
+    imply MCUX_COMPONENT_middleware.lvgl.template
+
+if MCUX_COMPONENT_middleware.lvgl
+
+    # For MCUX SDK integration.
+    # In MCUX SDK, the Kconfig string is translate macro with no quote,
+    # to generate macro with quote, the Kconfig string value should be
+    # set as "\"string\"".
+    config LV_OS_CUSTOM_INCLUDE
+        default "\"stdint.h\""
+
+    config LV_DRAW_SW_ASM_CUSTOM_INCLUDE
+        default "\"\""
+
+    config LV_ASSERT_HANDLER_INCLUDE
+        default "\"assert.h\""
+
+    config LV_GLOBAL_CUSTOM_INCLUDE
+        default "\"lv_global.h\""
+
+    config LV_TXT_BREAK_CHARS
+        default "\" ,.;:-_)}\""
+
+    config LV_PROFILER_INCLUDE
+        default "\"lvgl/src/misc/lv_profiler_builtin.h\""
+
+    config LV_TXT_COLOR_CMD
+        default "\"#\""
+
+    config LV_MONDAY_STR
+        default "\"Mo\""
+    config LV_TUESDAY_STR
+        default "\"Tu\""
+    config LV_WEDNESDAY_STR
+        default "\"We\""
+    config LV_THURSDAY_STR
+        default "\"Th\""
+    config LV_FRIDAY_STR
+        default "\"Fr\""
+    config LV_SATURDAY_STR
+        default "\"Sa\""
+    config LV_SUNDAY_STR
+        default "\"Su\""
+
+    # Kconfig default settings
+    config LV_USE_DRAW_VG_LITE
+        default y if MCUX_COMPONENT_middleware.vglite
+
+    config LV_USE_PXP
+        default y if MCUX_COMPONENT_driver.pxp
+
+    config LV_USE_DRAW_PXP
+        default n if LV_USE_DRAW_VG_LITE
+
+    config LV_DEMO_BENCHMARK_ALIGNED_FONTS
+        default y if LV_USE_DRAW_VG_LITE
+
+    config LV_DRAW_BUF_ALIGN
+        default 32 if LV_USE_PXP
+
+    osource "${SdkRootDirPath}/middleware/lvgl/Kconfig"
+
+    config LV_ATTRIBUTE_MEM_ALIGN
+        string "LV_ATTRIBUTE_MEM_ALIGN"
+        default ""
+        help
+            Will be added where memories needs to be aligned
+            (with -Os data might not be aligned to boundary by default).
+            E.g. __attribute__((aligned(LV_ATTRIBUTE_MEM_ALIGN_SIZE)))
+
+    config LV_ATTRIBUTE_LARGE_CONST
+        string "LV_ATTRIBUTE_LARGE_CONST"
+        default ""
+        help
+            Attribute to mark large constant arrays for example font's bitmaps.
+            E.g. __attribute__((section("DataQuickAccess")))
+
+    config LV_ATTRIBUTE_LARGE_RAM_ARRAY
+        string "LV_ATTRIBUTE_LARGE_RAM_ARRAY"
+        default ""
+        help
+            Attribute to mark large ram arrays for example font's bitmaps.
+            E.g. __attribute__((section(\"NonCacheable.init\")))
+
+    config LV_SYSMON_GET_IDLE
+        string "LV_SYSMON_GET_IDLE"
+        depends on LV_USE_SYSMON
+        default "lv_timer_get_idle"
+        help
+            Get the idle percentage.
+            E.g. uint32_t my_get_idle(void);
+
+endif
+
+menu "LVGL application layers"
+
+    config MCUX_COMPONENT_middleware.lvgl.template
+        bool "LVGL project template"
+
+    menu "Demos"
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.common
+            bool "common"
+            imply MCUX_COMPONENT_middleware.lvgl
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.transform
+            bool "transform"
+            imply MCUX_COMPONENT_middleware.lvgl
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.multilang
+            bool "multilang"
+            imply MCUX_COMPONENT_middleware.lvgl
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.flex_layout
+            bool "flex_layout"
+            imply MCUX_COMPONENT_middleware.lvgl
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.scroll
+            bool "scroll"
+            imply MCUX_COMPONENT_middleware.lvgl
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.music
+            bool "music"
+            imply MCUX_COMPONENT_middleware.lvgl
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.keypad_encoder
+            bool "keypad_encoder"
+            imply MCUX_COMPONENT_middleware.lvgl
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.benchmark
+            bool "benchmark"
+            imply MCUX_COMPONENT_middleware.lvgl
+            imply MCUX_COMPONENT_middleware.lvgl.demo.transform
+            imply MCUX_COMPONENT_middleware.lvgl.demo.widgets
+            imply MCUX_COMPONENT_middleware.lvgl.demo.common
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.stress
+            bool "stress"
+            imply MCUX_COMPONENT_middleware.lvgl
+            imply MCUX_COMPONENT_middleware.lvgl.demo.common
+
+        config MCUX_COMPONENT_middleware.lvgl.demo.widgets
+            bool "widgets"
+            imply MCUX_COMPONENT_middleware.lvgl
+            imply MCUX_COMPONENT_middleware.lvgl.demo.common
+
+    endmenu
+
+endmenu

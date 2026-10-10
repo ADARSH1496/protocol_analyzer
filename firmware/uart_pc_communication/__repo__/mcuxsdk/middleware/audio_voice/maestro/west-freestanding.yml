@@ -1,0 +1,47 @@
+# Freestanding Maestro west manifest
+#
+# Description:
+#   Used for setting up freestanding Maestro with its components and its
+#   own Zephyr and only necessary Zephyr components.
+#
+# How to set up:
+#   Maestro Initialization
+#     1. west init -m <repository URL> --mr <revision or branch> --mf west-freestanding.yml <foldername>
+#     2. cd <foldername>
+#     3. west update
+#
+# For more information, see zephyr/README.rst
+#
+
+manifest:
+  version: "1.2"
+
+  projects:
+    # Audio libraries used by Maestro
+    - name: vit
+      description: |
+        VIT library making voice command recognition.
+      url: https://github.com/nxp-mcuxpresso/VIT.git
+      path: vit
+      revision: 24.12.00
+
+    - name: audio_voice_components
+      description: |
+        NXP audio libraries (encoders, decoders, libraries)
+      url: https://github.com/nxp-mcuxpresso/audio-voice-components
+      path: audio_voice_components
+      revision: 24.12.00
+
+    # Zephyr project
+    - name: zephyr
+      url: https://github.com/zephyrproject-rtos/zephyr.git
+      path: zephyr
+      revision: v4.0.0
+      import:
+        name-whitelist:
+          - hal_nxp
+          - cmsis
+          - cmsis-dsp
+          - segger
+  self:
+    path: maestro

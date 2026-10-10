@@ -1,0 +1,33 @@
+# Copyright 2025 NXP
+#
+# SPDX-License-Identifier: BSD-3-Clause
+rsource "${SdkRootDirPath}/Kconfig.mcuxpresso"
+
+mainmenu "EL2GO Import Blob Configuration"
+
+config BLOB_AREA
+    default 0x084B0000
+    hex "The start address of the area where the blobs should be read from"
+    help
+        No prefix in generated macro
+
+config BLOB_AREA_SIZE
+    default 8192
+    int "The size of the area where the blobs should be read from in bytes"
+    help
+        No prefix in generated macro
+
+config VALIDATE_PSA_IMPORT_MASTER_KEY
+    bool "If the imported blobs should be validated by PSA operations for Master key operations"
+    help
+        No prefix in generated macro
+
+config VALIDATE_PSA_IMPORT_KEY_PAIR
+    bool "Config can be used if the imported blobs need to be validated by KEY pair operations"
+    help
+        No prefix in generated macro
+
+config VALIDATE_PSA_IMPORT_CERT
+    bool "Config can be used if the imported blobs need to parse the x509 certificate"
+    help
+        No prefix in generated macro

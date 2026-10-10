@@ -1,0 +1,16 @@
+els_pkc_common:
+  section-type: application
+  contents:
+    meta_path: examples/els_pkc_examples/els_pkc_common/.
+    project-root-path: boards/${board}/els_pkc_examples/els_pkc_common/${multicore_foldername}
+    document:
+      name: els_pkc_common${core_id_suffix_name}
+      category: els_pkc_examples
+      brief: The ELS PKC application provides examples which demonstrate usage of
+        common features including PRNG and a crypto library lightweight testing.
+      example_readme:
+      - examples/els_pkc_examples/els_pkc_common/readme.md
+      - ${board_root}/${board}/els_pkc_examples/els_pkc_common/example_board_readme.md
+      - ${board_root}/${board}/examples_shared_readme.md
+  boards:
+    frdmmcxn236: []

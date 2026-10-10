@@ -1,0 +1,14 @@
+emwin_serial_terminal:
+  section-type: application
+  contents:
+    meta_path: middleware/emwin/examples/emwin_serial_terminal/.
+    project-root-path: boards/${board}/emwin_examples/emwin_serial_terminal/${multicore_foldername}
+    document:
+      name: emwin_serial_terminal${core_id_suffix_name}
+      category: emwin_examples
+      brief: The serial_terminal demo shows how to use emWin library to render text.
+        Connect using serial terminal application to debug console and type text.Please
+        note that this example does not make use of receive buffer thus this example
+        cannot handle larger amout of text pasted to the terminal at a time.
+  boards:
+    frdmmcxn236: []

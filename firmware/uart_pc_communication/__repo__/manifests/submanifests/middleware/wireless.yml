@@ -1,0 +1,194 @@
+manifest:
+  remotes:
+  - name: nxp
+    url-base: https://github.com/NXP
+  - name: nxp-zephyr
+    url-base: https://github.com/nxp-zephyr
+  - name: nxp-mcuxpresso
+    url-base: https://github.com/nxp-mcuxpresso
+  defaults:
+    remote: nxp-mcuxpresso
+  projects:
+  - name: mcux-sdk-middleware-connectivity-framework
+    userdata:
+      owner: nicolas.collonville@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: Wireless Connectivity Framework
+      description: Abstraction and Integration Layer for the connectivity Stacks,
+        MAC and Link Layers
+    revision: 8fb84c410e5d146d60ede577f94bdbc3bce51dba
+    path: mcuxsdk/middleware/wireless/framework
+    groups:
+    - connectivity-framework
+    - middleware
+    - wireless
+    - ble_nxp
+  - name: genfsk
+    repo-path: mcux-sdk-middleware-genfsk
+    userdata:
+      owner: damien.lefebvre@nxp.com
+      track_branch: develop/main
+      branch_flow: false
+      display_name: Wireless GENFSK
+      description: GENFSK
+    path: mcuxsdk/middleware/wireless/genfsk
+    revision: 87e056c10608c052b5efc6a8c4a51e4de1e9e9ee
+    groups:
+    - genfsk
+    - middleware
+    - wireless
+  - name: ble_controller
+    repo-path: mcuxsdk-middleware-bluetooth-controller
+    userdata:
+      owner: damien.lefebvre@nxp.com
+      track_branch: develop/main
+      branch_flow: false
+      display_name: Wireless BLE Controller
+      description: wireless ble_controller middleware
+    path: mcuxsdk/middleware/wireless/ble_controller
+    revision: 6332e6e12dd66314cd6ba53d33247309557cda64
+    groups:
+    - ble_controller
+    - middleware
+    - wireless
+    - ble_nxp
+  - name: bluetooth
+    userdata:
+      owner: mihai-octavian.urzica@nxp.com
+      track_branch: develop/main
+      branch_flow: false
+      display_name: Wireless BLE stack
+      description: BLE
+    path: mcuxsdk/middleware/wireless/bluetooth
+    revision: 99e909300478f83c7afb59f6b3fe9d645ad8aba5
+    url: https://github.com/nxp-mcuxpresso/mcux-sdk-middleware-bluetooth-host
+    groups:
+    - bluetooth
+    - middleware
+    - wireless
+    - ble_nxp
+  - name: XCVR
+    userdata:
+      owner: john.vandermeer@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: Wireless XCVR Driver
+      description: Transceiver Driver for 2.4GHz narrowband radios
+    path: mcuxsdk/middleware/wireless/XCVR
+    revision: adbb04727c18c1996e6ac12ad36834b00d9d6afb
+    url: https://github.com/nxp-mcuxpresso/mcux-sdk-middleware-xcvr
+    groups:
+    - XCVR
+    - middleware
+    - wireless
+    - ble_nxp
+  - name: edgefast_bt_ble
+    userdata:
+      owner: junjie.liu@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: false
+      display_name: Wireless edgefast_bluetooth stack
+      description: BT/BLE edgefast_bluetooth stack
+    path: mcuxsdk/middleware/edgefast_bluetooth
+    revision: e8d01f5d27c81b99ff4da93739cc0f657b4989c4
+    repo-path: mcux-sdk-middleware-edgefast-bluetooth
+    groups:
+    - edgefast_bt_ble
+  - name: edgefast_open
+    userdata:
+      owner: junjie.liu@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: false
+    path: mcuxsdk/middleware/edgefast_open
+    revision: ec4ce42a3c002f5cba9ae0b296250db74cd0a0b8
+    repo-path: edgefast-open
+    groups:
+    - edgefast_open
+  - name: ieee-802.15.4
+    userdata:
+      owner: george.stefan@nxp.com
+      track_branch: public_main
+      branch_flow: false
+      display_name: IEEE 802.15.4 MACPHY Software
+      description: Software implementation for the IEEE 802.15.4 MACPHY
+    path: mcuxsdk/middleware/wireless/ieee-802.15.4
+    revision: 026785e9391a1d7d3d8523711278cf3f72b6cc59
+    repo-path: mcux-sdk-middleware-ieee_802.15.4
+    groups:
+    - ieee-802.15.4
+    - middleware
+    - wireless
+  - name: ethermind
+    userdata:
+      owner: vinit.mehta@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: Bluetooth and Bluetooth Low Energy Host Stack
+      description: Bluetooth and Bluetooth Low Energy Host Stack.
+    path: mcuxsdk/middleware/wireless/ethermind
+    revision: bc4be7cf27af303ef0bc2ea90f60b94a50289b6f
+    url: https://github.com/nxp-mcuxpresso/mcux-sdk-middleware-ethermind
+    groups:
+    - ethermind
+    - wireless
+  - name: wifi_nxp
+    userdata:
+      owner: null
+      track_branch: release/26.06.00
+      branch_flow: false
+      display_name: NXP Wi-Fi
+      description: NXP Wi-Fi
+    path: mcuxsdk/middleware/wifi_nxp
+    revision: cecbb775c6ed38e0a8b74850414e437f8556258b
+    url: https://github.com/NXP/wifi_nxp
+    groups:
+    - wifi_nxp
+  - name: fw_bin
+    userdata:
+      owner: jia.guo_2@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: false
+      display_name: RW61X Firmware Binary
+      description: WIFI, BLE and 15.4 Firmware Binaries.
+    path: mcuxsdk/components/conn_fwloader/fw_bin
+    revision: 2239989b85f5ecdc122b78ba0b4843d5fc617ced
+    url: https://github.com/NXP/wifi_nb_fw
+    groups:
+    - fw_bin
+    - wireless
+  - name: zigbee
+    userdata:
+      owner: alexandru.porosanu@nxp.com
+      track_branch: main
+      branch_flow: false
+      display_name: Wireless Zigbee
+      description: Zigbee stack
+    path: mcuxsdk/middleware/wireless/zigbee
+    revision: 9b84dfc0b6672dbab9675d4ae2816aefc4e8b189
+    repo-path: mcux-sdk-middleware-zigbee
+    groups:
+    - zigbee
+  - name: wpa_supplicant-rtos
+    userdata:
+      owner: jia.guo_2@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: false
+      display_name: wpa_supplicant-rtos
+      description: wpa_supplicant-rtos
+    path: mcuxsdk/middleware/wireless/wpa_supplicant-rtos
+    revision: 7cd5c1c212565ff05e7f3037cffba2724a134d5e
+    groups:
+    - wpa_supplicant-rtos
+    - wifi_nxp
+  - name: coex
+    userdata:
+      owner: jia.guo_2@nxp.com
+      track_branch: release/26.06.00
+      branch_flow: false
+      display_name: coex
+      description: coex examples for NXP RW612 SoC
+    path: mcuxsdk/middleware/wireless/coex
+    revision: 8094c5be52afd16b64d6dadec72d1b26486535e2
+    groups:
+    - coex
