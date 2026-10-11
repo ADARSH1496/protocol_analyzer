@@ -1195,7 +1195,7 @@ LOAD C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_
                 0x00000000                __Vectors
                 0x000002b0                        . = ALIGN (0x4)
 
-.text           0x00000400     0x5220
+.text           0x00000400     0x5338
                 0x00000400                        . = ALIGN (0x4)
  *(.text)
  .text          0x00000400       0x7c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crt0.o
@@ -1842,207 +1842,210 @@ LOAD C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_
  .text.BOARD_InitHardware
                 0x0000449c       0x38 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
                 0x0000449c                BOARD_InitHardware
+ .text.CLOCK_EnableClock
+                0x000044d4       0x9a CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .text.PORT_SetPinMux
+                0x0000456e       0x3e CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
  .text.lpi2c_slave_callback
-                0x000044d4      0x10c CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
- .text.main     0x000045e0      0x11c CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
-                0x000045e0                main
- .text.exit     0x000046fc       0x24 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
-                0x000046fc                exit
+                0x000045ac       0x5c CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .text.main     0x00004608      0x1bc CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+                0x00004608                main
+ .text.exit     0x000047c4       0x24 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+                0x000047c4                exit
  .text.__libc_init_array
-                0x00004720       0x48 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
-                0x00004720                __libc_init_array
+                0x000047e8       0x48 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+                0x000047e8                __libc_init_array
  .text.__fixunssfdi
-                0x00004768       0x40 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_fixunssfdi.o)
-                0x00004768                __fixunssfdi
-                0x00004768                __aeabi_f2ulz
+                0x00004830       0x40 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_fixunssfdi.o)
+                0x00004830                __fixunssfdi
+                0x00004830                __aeabi_f2ulz
  .text.__udivmoddi4
-                0x000047a8      0x34c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
-                0x000047a8                __udivmoddi4
- .text._exit    0x00004af4        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libnosys.a(_exit.o)
-                0x00004af4                _exit
+                0x00004870      0x34c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x00004870                __udivmoddi4
+ .text._exit    0x00004bbc        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libnosys.a(_exit.o)
+                0x00004bbc                _exit
  *(.rodata)
- .rodata        0x00004af8       0xb8 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
- .rodata        0x00004bb0       0x82 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj
- *fill*         0x00004c32        0x2 
- .rodata        0x00004c34       0xce CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
- *fill*         0x00004d02        0x2 
- .rodata        0x00004d04       0x87 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
- *fill*         0x00004d8b        0x1 
- .rodata        0x00004d8c      0x17d CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
- *fill*         0x00004f09        0x3 
- .rodata        0x00004f0c      0x1fa CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
- *fill*         0x00005106        0x2 
- .rodata        0x00005108       0x3e CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/assert/fsl_assert.c.obj
- *fill*         0x00005146        0x2 
- .rodata        0x00005148      0x108 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
- .rodata        0x00005250       0x22 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
- *fill*         0x00005272        0x2 
- .rodata        0x00005274       0x44 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
- .rodata        0x000052b8       0x29 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .rodata        0x00004bc0       0xb8 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
+ .rodata        0x00004c78       0x82 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj
+ *fill*         0x00004cfa        0x2 
+ .rodata        0x00004cfc       0xce CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+ *fill*         0x00004dca        0x2 
+ .rodata        0x00004dcc       0x87 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
+ *fill*         0x00004e53        0x1 
+ .rodata        0x00004e54      0x17d CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+ *fill*         0x00004fd1        0x3 
+ .rodata        0x00004fd4      0x1fa CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+ *fill*         0x000051ce        0x2 
+ .rodata        0x000051d0       0x3e CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/assert/fsl_assert.c.obj
+ *fill*         0x0000520e        0x2 
+ .rodata        0x00005210      0x108 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
+ .rodata        0x00005318       0x22 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
+ *fill*         0x0000533a        0x2 
+ .rodata        0x0000533c       0x44 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
+ .rodata        0x00005380       0x7c CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
  *(.rodata*)
- *fill*         0x000052e1        0x3 
  .rodata.__func__.1
-                0x000052e4       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
+                0x000053fc       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
  .rodata.__func__.0
-                0x000052f4       0x1b CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj
- *fill*         0x0000530f        0x1 
+                0x0000540c       0x1b CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj
+ *fill*         0x00005427        0x1 
  .rodata.s_lpflexcommBaseAddrs
-                0x00005310       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+                0x00005428       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
  .rodata.s_lpflexcommBase
-                0x00005330       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+                0x00005448       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
  .rodata.s_lpflexcommClocks
-                0x00005350       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+                0x00005468       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
  .rodata.s_lpflexcommResets
-                0x00005360       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+                0x00005478       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
  .rodata.__func__.3
-                0x00005380       0x16 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
- *fill*         0x00005396        0x2 
+                0x00005498       0x16 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+ *fill*         0x000054ae        0x2 
  .rodata.__func__.2
-                0x00005398       0x11 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
- *fill*         0x000053a9        0x3 
+                0x000054b0       0x11 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+ *fill*         0x000054c1        0x3 
  .rodata.__func__.0
-                0x000053ac       0x1a CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
- *fill*         0x000053c6        0x2 
+                0x000054c4       0x1a CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+ *fill*         0x000054de        0x2 
  .rodata.__func__.9
-                0x000053c8       0x1a CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
- *fill*         0x000053e2        0x2 
+                0x000054e0       0x1a CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
+ *fill*         0x000054fa        0x2 
  .rodata.__func__.5
-                0x000053e4       0x28 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
+                0x000054fc       0x28 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
  .rodata.__func__.3
-                0x0000540c       0x25 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
- *fill*         0x00005431        0x3 
+                0x00005524       0x25 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
+ *fill*         0x00005549        0x3 
  .rodata.kLpi2cBases
-                0x00005434       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+                0x0000554c       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
  .rodata.kLpi2cIrqs
-                0x00005454       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
-                0x00005454                kLpi2cIrqs
+                0x0000556c       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+                0x0000556c                kLpi2cIrqs
  .rodata.kLpi2cClocks
-                0x00005464       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+                0x0000557c       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
  .rodata.__func__.18
-                0x00005474       0x12 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
- *fill*         0x00005486        0x2 
+                0x0000558c       0x12 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+ *fill*         0x0000559e        0x2 
  .rodata.__func__.17
-                0x00005488       0x18 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+                0x000055a0       0x18 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
  .rodata.__func__.7
-                0x000054a0       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+                0x000055b8       0x10 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
  .rodata.__func__.4
-                0x000054b0       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+                0x000055c8       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
  .rodata.__func__.3
-                0x000054d0       0x1f CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
- *fill*         0x000054ef        0x1 
+                0x000055e8       0x1f CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+ *fill*         0x00005607        0x1 
  .rodata.__func__.0
-                0x000054f0       0x1d CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
- *fill*         0x0000550d        0x3 
+                0x00005608       0x1d CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+ *fill*         0x00005625        0x3 
  .rodata.s_lpuartBases
-                0x00005510       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+                0x00005628       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
  .rodata.__func__.25
-                0x00005530       0x13 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
- *fill*         0x00005543        0x1 
+                0x00005648       0x13 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+ *fill*         0x0000565b        0x1 
  .rodata.__func__.18
-                0x00005544        0xc CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+                0x0000565c        0xc CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
  .rodata.__func__.17
-                0x00005550       0x18 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+                0x00005668       0x18 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
  .rodata.__func__.13
-                0x00005568       0x15 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
- *fill*         0x0000557d        0x3 
+                0x00005680       0x15 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+ *fill*         0x00005695        0x3 
  .rodata.__func__.11
-                0x00005580       0x14 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+                0x00005698       0x14 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
  .rodata.s_LpuartAdapterBase
-                0x00005594       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
+                0x000056ac       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
  .rodata.__func__.4
-                0x000055b4        0xd CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
- *fill*         0x000055c1        0x3 
+                0x000056cc        0xd CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
+ *fill*         0x000056d9        0x3 
  .rodata.__func__.2
-                0x000055c4       0x18 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
+                0x000056dc       0x18 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
  .rodata.__func__.1
-                0x000055dc       0x15 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
- *fill*         0x000055f1        0x3 
+                0x000056f4       0x15 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
+ *fill*         0x00005709        0x3 
  .rodata.__func__.0
-                0x000055f4       0x12 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
+                0x0000570c       0x12 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
  *(.glue_7)
- .glue_7        0x00005606        0x0 linker stubs
+ .glue_7        0x0000571e        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x00005606        0x0 linker stubs
+ .glue_7t       0x0000571e        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x00005606        0x2 
- .eh_frame      0x00005608        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ *fill*         0x0000571e        0x2 
+ .eh_frame      0x00005720        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
  *(.init)
- .init          0x00005608        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crti.o
-                0x00005608                _init
- .init          0x0000560c        0x8 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtn.o
+ .init          0x00005720        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crti.o
+                0x00005720                _init
+ .init          0x00005724        0x8 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtn.o
  *(.fini)
- .fini          0x00005614        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crti.o
-                0x00005614                _fini
- .fini          0x00005618        0x8 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtn.o
-                0x00005620                        . = ALIGN (0x4)
+ .fini          0x0000572c        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crti.o
+                0x0000572c                _fini
+ .fini          0x00005730        0x8 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtn.o
+                0x00005738                        . = ALIGN (0x4)
 
-.vfp11_veneer   0x00005620        0x0
- .vfp11_veneer  0x00005620        0x0 linker stubs
+.vfp11_veneer   0x00005738        0x0
+ .vfp11_veneer  0x00005738        0x0 linker stubs
 
-.v4_bx          0x00005620        0x0
- .v4_bx         0x00005620        0x0 linker stubs
+.v4_bx          0x00005738        0x0
+ .v4_bx         0x00005738        0x0 linker stubs
 
-.iplt           0x00005620        0x0
- .iplt          0x00005620        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.iplt           0x00005738        0x0
+ .iplt          0x00005738        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x00005620        0x8
-                0x00005620                        __exidx_start = .
+.ARM            0x00005738        0x8
+                0x00005738                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x00005620        0x8 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crt0.o
+ .ARM.exidx     0x00005738        0x8 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crt0.o
                                  0x10 (size before relaxing)
- .ARM.exidx     0x00005628        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-strlen.o)
+ .ARM.exidx     0x00005740        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-strlen.o)
                                   0x8 (size before relaxing)
  .ARM.exidx.text.__udivmoddi4
-                0x00005628        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
+                0x00005740        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
                                   0x8 (size before relaxing)
-                0x00005628                        __exidx_end = .
+                0x00005740                        __exidx_end = .
 
-.rel.dyn        0x00005628        0x0
- .rel.iplt      0x00005628        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+.rel.dyn        0x00005740        0x0
+ .rel.iplt      0x00005740        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.ctors          0x00005628        0x0
-                0x00005628                        __CTOR_LIST__ = .
+.ctors          0x00005740        0x0
+                0x00005740                        __CTOR_LIST__ = .
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
  *(.ctors)
-                0x00005628                        __CTOR_END__ = .
+                0x00005740                        __CTOR_END__ = .
 
-.dtors          0x00005628        0x0
-                0x00005628                        __DTOR_LIST__ = .
+.dtors          0x00005740        0x0
+                0x00005740                        __DTOR_LIST__ = .
  *crtbegin.o(.dtors)
  *crtbegin?.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
-                0x00005628                        __DTOR_END__ = .
+                0x00005740                        __DTOR_END__ = .
 
-.preinit_array  0x00005628        0x0
-                0x00005628                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x00005740        0x0
+                0x00005740                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x00005628                        PROVIDE (__preinit_array_end = .)
+                0x00005740                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x00005628        0x4
-                0x00005628                        PROVIDE (__init_array_start = .)
+.init_array     0x00005740        0x4
+                0x00005740                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x00005628        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
-                0x0000562c                        PROVIDE (__init_array_end = .)
+ .init_array    0x00005740        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+                0x00005744                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000562c        0x4
+.fini_array     0x00005744        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000562c        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
+ .fini_array    0x00005744        0x4 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x00005630                        __etext = .
-                0x00005630                        __DATA_ROM = .
+                0x00005748                        __etext = .
+                0x00005748                        __DATA_ROM = .
 
-.data           0x20000000        0xc load address 0x00005630
+.data           0x20000000        0xc load address 0x00005748
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        __DATA_RAM = .
                 0x20000000                        __data_start__ = .
@@ -2063,21 +2066,21 @@ LOAD C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_
  *(.jcr*)
                 0x2000000c                        . = ALIGN (0x4)
                 0x2000000c                        __data_end__ = .
-                0x0000563c                        __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
+                0x00005754                        __DATA_END = (__DATA_ROM + (__data_end__ - __data_start__))
                 0x00100000                        text_end = (ORIGIN (m_text) + LENGTH (m_text))
                 0x00000001                        ASSERT ((__DATA_END <= text_end), region m_text overflowed with text and data)
 
 .tm_clone_table
-                0x2000000c        0x0 load address 0x0000563c
+                0x2000000c        0x0 load address 0x00005754
  .tm_clone_table
                 0x2000000c        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
  .tm_clone_table
                 0x2000000c        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtend.o
 
-.igot.plt       0x2000000c        0x0 load address 0x0000563c
+.igot.plt       0x2000000c        0x0 load address 0x00005754
  .igot.plt      0x2000000c        0x0 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard/crtbegin.o
 
-.bss            0x2000000c      0x1ac load address 0x0000563c
+.bss            0x2000000c      0x1ac load address 0x00005754
                 0x2000000c                        . = ALIGN (0x4)
                 0x2000000c                        __START_BSS = .
                 0x2000000c                        __bss_start__ = .
@@ -2119,7 +2122,7 @@ LOAD C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_
                 0x200001b8                        __bss_end__ = .
                 0x200001b8                        __END_BSS = .
 
-.heap           0x200001b8      0x400 load address 0x000057e8
+.heap           0x200001b8      0x400 load address 0x00005900
                 0x200001b8                        . = ALIGN (0x8)
                 0x200001b8                        __end__ = .
                 0x200001b8                        PROVIDE (end = .)
@@ -2129,7 +2132,7 @@ LOAD C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_
                 0x200005b8                        __HeapLimit = .
                 0x200005b8                        __heap_limit = .
 
-.stack          0x200005b8      0x800 load address 0x00005be8
+.stack          0x200005b8      0x800 load address 0x00005d00
                 0x200005b8                        . = ALIGN (0x8)
                 0x20000db8                        . = (. + STACK_SIZE)
  *fill*         0x200005b8      0x800 
@@ -2238,7 +2241,7 @@ LOAD linker stubs
  .debug_line_str
                 0x0000039a       0xd6 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
 
-.debug_info     0x00000000    0x196d7
+.debug_info     0x00000000    0x1aef4
  .debug_info    0x00000000     0x165f CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
  .debug_info    0x0000165f      0xf58 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/gcc/startup_MCXN236.S.obj
  .debug_info    0x000025b7     0x483f CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
@@ -2256,9 +2259,9 @@ LOAD linker stubs
  .debug_info    0x000147c3     0x20a5 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
  .debug_info    0x00016868     0x1326 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
  .debug_info    0x00017b8e      0x9c5 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
- .debug_info    0x00018553     0x1184 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .debug_info    0x00018553     0x29a1 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
 
-.debug_abbrev   0x00000000     0x24c7
+.debug_abbrev   0x00000000     0x2564
  .debug_abbrev  0x00000000      0x1b1 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
  .debug_abbrev  0x000001b1       0x26 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/gcc/startup_MCXN236.S.obj
  .debug_abbrev  0x000001d7      0x395 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
@@ -2276,9 +2279,9 @@ LOAD linker stubs
  .debug_abbrev  0x00001d44      0x244 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
  .debug_abbrev  0x00001f88      0x24d CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
  .debug_abbrev  0x000021d5       0xc8 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
- .debug_abbrev  0x0000229d      0x22a CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .debug_abbrev  0x0000229d      0x2c7 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
 
-.debug_aranges  0x00000000      0xb30
+.debug_aranges  0x00000000      0xb40
  .debug_aranges
                 0x00000000       0x30 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
  .debug_aranges
@@ -2314,10 +2317,10 @@ LOAD linker stubs
  .debug_aranges
                 0x00000ae8       0x20 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
  .debug_aranges
-                0x00000b08       0x28 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+                0x00000b08       0x38 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
 
 .debug_rnglists
-                0x00000000      0x86c
+                0x00000000      0x878
  .debug_rnglists
                 0x00000000       0x20 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
  .debug_rnglists
@@ -2347,9 +2350,9 @@ LOAD linker stubs
  .debug_rnglists
                 0x0000083e       0x13 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
  .debug_rnglists
-                0x00000851       0x1b CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+                0x00000851       0x27 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
 
-.debug_line     0x00000000     0x98c3
+.debug_line     0x00000000     0x99b9
  .debug_line    0x00000000      0x3b6 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
  .debug_line    0x000003b6      0x3b9 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/gcc/startup_MCXN236.S.obj
  .debug_line    0x0000076f     0x226b CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
@@ -2367,28 +2370,28 @@ LOAD linker stubs
  .debug_line    0x0000889f      0x4c5 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
  .debug_line    0x00008d64      0x3d9 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
  .debug_line    0x0000913d      0x27a CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
- .debug_line    0x000093b7      0x50c CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .debug_line    0x000093b7      0x602 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
 
-.debug_str      0x00000000     0xe4fe
- .debug_str     0x00000000     0xe4fe CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
+.debug_str      0x00000000     0xe536
+ .debug_str     0x00000000     0xe536 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
                                0x18c2 (size before relaxing)
- .debug_str     0x0000e4fe     0x1f08 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/gcc/startup_MCXN236.S.obj
- .debug_str     0x0000e4fe     0x547f CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
- .debug_str     0x0000e4fe     0x108a CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj
- .debug_str     0x0000e4fe     0x3108 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
- .debug_str     0x0000e4fe     0x1d1e CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
- .debug_str     0x0000e4fe     0x4006 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
- .debug_str     0x0000e4fe     0x2fa2 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
- .debug_str     0x0000e4fe      0x280 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/assert/fsl_assert.c.obj
- .debug_str     0x0000e4fe     0x1468 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/debug_console_lite/fsl_debug_console.c.obj
- .debug_str     0x0000e4fe       0x95 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_memcpy.S.obj
- .debug_str     0x0000e4fe       0x95 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_memset.S.obj
- .debug_str     0x0000e4fe     0x17c8 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
- .debug_str     0x0000e4fe     0x264c CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/board.c.obj
- .debug_str     0x0000e4fe     0x343f CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
- .debug_str     0x0000e4fe     0x161a CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
- .debug_str     0x0000e4fe     0x1c07 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
- .debug_str     0x0000e4fe     0x1a83 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .debug_str     0x0000e536     0x1f08 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/gcc/startup_MCXN236.S.obj
+ .debug_str     0x0000e536     0x547f CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
+ .debug_str     0x0000e536     0x108a CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj
+ .debug_str     0x0000e536     0x3108 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/fsl_lpflexcomm.c.obj
+ .debug_str     0x0000e536     0x1d1e CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/mcx_spc/fsl_spc.c.obj
+ .debug_str     0x0000e536     0x4006 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpi2c/fsl_lpi2c.c.obj
+ .debug_str     0x0000e536     0x2fa2 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/drivers/lpflexcomm/lpuart/fsl_lpuart.c.obj
+ .debug_str     0x0000e536      0x280 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/assert/fsl_assert.c.obj
+ .debug_str     0x0000e536     0x1468 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/debug_console_lite/fsl_debug_console.c.obj
+ .debug_str     0x0000e536       0x95 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_memcpy.S.obj
+ .debug_str     0x0000e536       0x95 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/misc_utilities/fsl_memset.S.obj
+ .debug_str     0x0000e536     0x17c8 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/components/uart/fsl_adapter_lpuart.c.obj
+ .debug_str     0x0000e536     0x264c CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/board.c.obj
+ .debug_str     0x0000e536     0x343f CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
+ .debug_str     0x0000e536     0x161a CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
+ .debug_str     0x0000e536     0x1c07 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
+ .debug_str     0x0000e536     0x4015 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
@@ -2408,7 +2411,7 @@ LOAD linker stubs
  .comment       0x00000045       0x46 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
  .comment       0x00000045       0x46 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
 
-.debug_frame    0x00000000     0x3088
+.debug_frame    0x00000000     0x30d0
  .debug_frame   0x00000000       0x68 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/system_MCXN236.c.obj
  .debug_frame   0x00000068      0xd08 CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.c.obj
  .debug_frame   0x00000d70       0x7c CMakeFiles/i2c_analyzer_firmware.dir/C_/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_reset.c.obj
@@ -2423,15 +2426,15 @@ LOAD linker stubs
  .debug_frame   0x00002ac8      0x108 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/frdmmcxn236/clock_config.c.obj
  .debug_frame   0x00002bd0       0xc0 CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/pin_mux.c.obj
  .debug_frame   0x00002c90       0x2c CMakeFiles/i2c_analyzer_firmware.dir/frdmmcxn236/slave/hardware_init.c.obj
- .debug_frame   0x00002cbc       0x64 CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
- .debug_frame   0x00002d20       0x28 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
- .debug_frame   0x00002d48      0x144 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x00002e8c       0x2c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
- .debug_frame   0x00002eb8       0x20 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-strlen.o)
- .debug_frame   0x00002ed8       0x2c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00002f04       0x2c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_fixunssfdi.o)
- .debug_frame   0x00002f30       0x38 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
- .debug_frame   0x00002f68       0x30 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldf3.o)
- .debug_frame   0x00002f98       0xac C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00003044       0x24 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
- .debug_frame   0x00003068       0x20 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libnosys.a(_exit.o)
+ .debug_frame   0x00002cbc       0xac CMakeFiles/i2c_analyzer_firmware.dir/lpi2c_interrupt_b2b_transfer_slave.c.obj
+ .debug_frame   0x00002d68       0x28 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-exit.o)
+ .debug_frame   0x00002d90      0x144 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00002ed4       0x2c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-init.o)
+ .debug_frame   0x00002f00       0x20 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libc_nano.a(libc_a-strlen.o)
+ .debug_frame   0x00002f20       0x2c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00002f4c       0x2c C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_fixunssfdi.o)
+ .debug_frame   0x00002f78       0x38 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00002fb0       0x30 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_muldf3.o)
+ .debug_frame   0x00002fe0       0xac C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x0000308c       0x24 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
+ .debug_frame   0x000030b0       0x20 C:/Users/ADARSH/.mcuxpressotools/arm-gnu-toolchain-14.2.rel1-mingw-w64-x86_64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v8-m.main+fp/hard\libnosys.a(_exit.o)

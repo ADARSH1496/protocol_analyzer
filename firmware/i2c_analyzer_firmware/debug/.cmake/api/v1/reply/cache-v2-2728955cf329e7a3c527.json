@@ -1419,11 +1419,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "The CMake toolchain file"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "FILEPATH",
-			"value" : "C:/SDK/frdm_mcxn236/mcuxsdk/cmake/toolchain/armgcc.cmake"
+			"type" : "UNINITIALIZED",
+			"value" : "c:/SDK/frdm_mcxn236/mcuxsdk/cmake/toolchain/armgcc.cmake"
 		},
 		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",
@@ -1704,6 +1704,18 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "e9c0a726d284b160e0655ad3ddb1c06e"
+		},
+		{
+			"name" : "_Python3_Interpreter_REASON_FAILURE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Interpreter reason failure"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : ""
 		},
 		{
 			"name" : "_Python3_NumPy_REASON_FAILURE",

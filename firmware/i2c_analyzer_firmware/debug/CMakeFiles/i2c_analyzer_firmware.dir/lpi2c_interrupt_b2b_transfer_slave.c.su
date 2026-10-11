@@ -1,2 +1,4 @@
-C:/_git/_mcx/protocol_analyzer/firmware/i2c_analyzer_firmware/lpi2c_interrupt_b2b_transfer_slave.c:51:13:lpi2c_slave_callback	24	static
-C:/_git/_mcx/protocol_analyzer/firmware/i2c_analyzer_firmware/lpi2c_interrupt_b2b_transfer_slave.c:90:5:main	136	static
+C:/SDK/frdm_mcxn236/mcuxsdk/devices/MCX/MCXN/MCXN236/drivers/fsl_clock.h:1235:20:CLOCK_EnableClock	24	static
+C:/SDK/frdm_mcxn236/mcuxsdk/drivers/port/fsl_port.h:463:20:PORT_SetPinMux	24	static
+C:/_git/_mcx/protocol_analyzer/firmware/i2c_analyzer_firmware/lpi2c_interrupt_b2b_transfer_slave.c:35:13:lpi2c_slave_callback	24	static
+C:/_git/_mcx/protocol_analyzer/firmware/i2c_analyzer_firmware/lpi2c_interrupt_b2b_transfer_slave.c:54:5:main	280	static
