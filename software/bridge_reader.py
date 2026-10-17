@@ -52,9 +52,11 @@ def run_serial_monitor():
                         if rx_buffer[frame_len - 1] == 0x55:
                             payload = rx_buffer[2 : 2 + payload_len]
                             if payload_len >= 1:
-                                address = hex(payload[0])
+                                raw_addr_byte = payload[0]
+                                addr_7bit = hex(raw_addr_byte >> 1)
+                                rw_dir = "READ (EMULATOR TX)" if (raw_addr_byte & 0x01) else "WRITE (MASTER TX)"
                                 data_bytes = [hex(b) for b in payload[1:]]
-                                print(f"[I2C TRAFFIC] ADDR: {address} | DATA: {data_bytes}")
+                                print(f"[I2C {rw_dir}] ADDR: {addr_7bit} | DATA: {data_bytes}")
                             rx_buffer = rx_buffer[frame_len:]
                         else:
                             rx_buffer.pop(0)
