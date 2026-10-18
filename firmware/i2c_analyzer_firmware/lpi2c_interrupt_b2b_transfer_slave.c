@@ -1,7 +1,7 @@
 /*
  * I2C Protocol Analyzer & Slave Emulator - Complete Production Firmware (Step 1C)
  * Supports:
- *   1. True Bus Analyzer Mode (Range Match 0x08 - 0x7E)
+ *   1. True Bus Analyzer Mode (Range Match 0x18 - 0x7E)
  *   2. Active Slave Emulator Mode (Dynamic Address & Custom Fault Payload Injection)
  *   3. Bi-Directional UART Command Listener (0xBB [Mode] [Addr] [B0] [B1] [B2] [B3] 0x55)
  */
@@ -101,8 +101,8 @@ static void Configure_I2C_Hardware(uint8_t mode, uint8_t target_addr_7bit)
 
     if (mode == 0U)
     {
-        /* ANALYZER MODE: Match all standard 7-bit addresses from 0x08 to 0x7E */
-        slaveConfig.address0         = 0x08U;
+        /* ANALYZER MODE: Match all standard 7-bit addresses from 0x18 to 0x7E */
+        slaveConfig.address0         = 0x18U;
         slaveConfig.address1         = 0x7EU;
         slaveConfig.addressMatchMode = kLPI2C_MatchAddress0OrAddress1;
     }
@@ -146,11 +146,11 @@ int main(void)
 
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM2);
 
-    /* --- 3. START IN ANALYZER MODE BY DEFAULT (Sniff 0x08 - 0x7E) --- */
+    /* --- 3. START IN ANALYZER MODE BY DEFAULT (Sniff 0x18 - 0x7E) --- */
     memset(g_slave_rx_buff, 0, sizeof(g_slave_rx_buff));
     Configure_I2C_Hardware(g_currentMode, g_targetAddr);
 
-    uint8_t readyMsg[] = "[READY] Mode: ANALYZER (Sniffing 0x08-0x7E) | Default Fault TX: FA CE B0 0C\r\n";
+    uint8_t readyMsg[] = "[READY] Mode: ANALYZER (Sniffing 0x18-0x7E) | Default Fault TX: FA CE B0 0C\r\n";
     LPUART_WriteBlocking(DEMO_LPUART, readyMsg, sizeof(readyMsg) - 1);
 
     while (1)
@@ -221,7 +221,7 @@ int main(void)
                         char ackMsg[96];
                         snprintf(ackMsg, sizeof(ackMsg),
                                  "\r\n[CFG-ACK] Mode=%s | Addr=0x%02X | FaultPayload=%02X %02X %02X %02X\r\n",
-                                 (g_currentMode == 0U) ? "ANALYZER(0x08-0x7E)" : "EMULATOR",
+                                 (g_currentMode == 0U) ? "ANALYZER(0x18-0x7E)" : "EMULATOR",
                                  g_targetAddr,
                                  g_emulator_tx_buff[0], g_emulator_tx_buff[1],
                                  g_emulator_tx_buff[2], g_emulator_tx_buff[3]);
