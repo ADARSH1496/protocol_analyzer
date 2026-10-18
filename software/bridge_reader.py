@@ -5,6 +5,15 @@ import time
 COM_PORT = 'COM3'  
 BAUD_RATE = 115200
 
+def send_config_command(ser, mode: int, target_addr: int, fault_bytes: list[int]):
+    """
+    Sends 8-byte binary configuration packet to NXP board:
+    [0xBB, mode (0=Analyzer, 1=Emulator), addr_7bit, B0, B1, B2, B3, 0x55]
+    """
+    b = (fault_bytes + [0x00, 0x00, 0x00, 0x00])[:4]
+    cmd_frame = bytearray([0xBB, mode & 0xFF, target_addr & 0x7F, b[0], b[1], b[2], b[3], 0x55])
+    ser.write(cmd_frame)
+
 def run_serial_monitor():
     rx_buffer = bytearray()
     
@@ -12,6 +21,10 @@ def run_serial_monitor():
         print(f"Attempting to connect to {COM_PORT} at {BAUD_RATE} baud...")
         with serial.Serial(COM_PORT, BAUD_RATE, timeout=0.1) as ser:
             print("Connection established. System ready.\n")
+            # Test dynamic configuration: Keep Mode=0 (Analyzer range 0x08-0x7E) 
+            # and inject custom fault payload [0xBA, 0xAD, 0xF0, 0x0D]
+            time.sleep(0.2)
+            send_config_command(ser, mode=0, target_addr=0x7E, fault_bytes=[0xBA, 0xAD, 0xF0, 0x0D])
             
             while True:
                 if ser.in_waiting > 0:

@@ -1,5 +1,9 @@
 /*
- * I2C Protocol Analyzer & Slave Emulator - Step 1B: R/W Decoding & Active Slave Emulator
+ * I2C Protocol Analyzer & Slave Emulator - Complete Production Firmware (Step 1C)
+ * Supports:
+ *   1. True Bus Analyzer Mode (Range Match 0x08 - 0x7E)
+ *   2. Active Slave Emulator Mode (Dynamic Address & Custom Fault Payload Injection)
+ *   3. Bi-Directional UART Command Listener (0xBB [Mode] [Addr] [B0] [B1] [B2] [B3] 0x55)
  */
 
 #include <stdio.h>
@@ -14,8 +18,9 @@
 #include "fsl_port.h"
 
 #define EXAMPLE_I2C_SLAVE              LPI2C2
-#define I2C_MASTER_SLAVE_ADDR_7BIT     0x7EU
+#define DEFAULT_SLAVE_ADDR_7BIT        0x7EU
 #define I2C_DATA_LENGTH                34U
+#define CMD_FRAME_LENGTH               8U
 
 #ifndef DEMO_LPUART
 #define DEMO_LPUART                    ((LPUART_Type *)BOARD_DEBUG_UART_BASEADDR)
@@ -28,7 +33,7 @@
 #endif
 
 uint8_t g_slave_rx_buff[I2C_DATA_LENGTH];
-/* Default Fault-Injection / Emulator payload sent when Master READS from us */
+/* Dynamic Fault-Injection / Emulator payload sent when Master READS from us */
 uint8_t g_emulator_tx_buff[I2C_DATA_LENGTH] = {0xFA, 0xCE, 0xB0, 0x0C};
 
 lpi2c_slave_handle_t g_s_handle;
@@ -36,6 +41,19 @@ volatile bool g_SlaveCompletionFlag = false;
 volatile size_t g_transferredCount = 0U;
 volatile uint8_t g_matchedAddress = 0U; /* Full 8-bit hardware address: [7-bit Addr | R/W bit] */
 volatile bool g_isReadTransaction = false;
+
+/* Current operating state */
+uint8_t g_currentMode = 0U; /* 0 = Analyzer (All Addresses), 1 = Emulator (Single Target Address) */
+uint8_t g_targetAddr  = DEFAULT_SLAVE_ADDR_7BIT;
+
+/* UART RX Command Buffer */
+uint8_t g_uart_cmd_buff[CMD_FRAME_LENGTH];
+uint8_t g_uart_cmd_idx = 0U;
+
+uint32_t g_eventMask = kLPI2C_SlaveAddressMatchEvent | 
+                       kLPI2C_SlaveReceiveEvent | 
+                       kLPI2C_SlaveTransmitEvent | 
+                       kLPI2C_SlaveCompletionEvent;
 
 static void lpi2c_slave_callback(LPI2C_Type *base, lpi2c_slave_transfer_t *xfer, void *param)
 {
@@ -47,7 +65,6 @@ static void lpi2c_slave_callback(LPI2C_Type *base, lpi2c_slave_transfer_t *xfer,
             xfer->dataSize   = 0;
             break;
 
-        /* Master is WRITING to us (Analyzer / Slave RX) */
         case kLPI2C_SlaveReceiveEvent:
             g_matchedAddress    = (uint8_t)(xfer->receivedAddress & 0xFFU);
             g_isReadTransaction = false;
@@ -55,7 +72,6 @@ static void lpi2c_slave_callback(LPI2C_Type *base, lpi2c_slave_transfer_t *xfer,
             xfer->dataSize      = I2C_DATA_LENGTH;
             break;
 
-        /* Master is READING from us (Slave Emulator / Fault Injection TX) */
         case kLPI2C_SlaveTransmitEvent:
             g_matchedAddress    = (uint8_t)(xfer->receivedAddress & 0xFFU);
             g_isReadTransaction = true;
@@ -75,9 +91,35 @@ static void lpi2c_slave_callback(LPI2C_Type *base, lpi2c_slave_transfer_t *xfer,
     }
 }
 
-int main(void)
+/* Dynamically (re)configures LPI2C2 hardware registers for Analyzer or Emulator mode */
+static void Configure_I2C_Hardware(uint8_t mode, uint8_t target_addr_7bit)
 {
     lpi2c_slave_config_t slaveConfig;
+
+    LPI2C_SlaveDeinit(EXAMPLE_I2C_SLAVE);
+    LPI2C_SlaveGetDefaultConfig(&slaveConfig);
+
+    if (mode == 0U)
+    {
+        /* ANALYZER MODE: Match all standard 7-bit addresses from 0x08 to 0x7E */
+        slaveConfig.address0         = 0x08U;
+        slaveConfig.address1         = 0x7EU;
+        slaveConfig.addressMatchMode = kLPI2C_MatchAddress0OrAddress1;
+    }
+    else
+    {
+        /* EMULATOR MODE: Match only the specific target address */
+        slaveConfig.address0         = target_addr_7bit;
+        slaveConfig.addressMatchMode = kLPI2C_MatchAddress0;
+    }
+
+    LPI2C_SlaveInit(EXAMPLE_I2C_SLAVE, &slaveConfig, CLOCK_GetLPFlexCommClkFreq(2U));
+    LPI2C_SlaveTransferCreateHandle(EXAMPLE_I2C_SLAVE, &g_s_handle, lpi2c_slave_callback, NULL);
+    LPI2C_SlaveTransferNonBlocking(EXAMPLE_I2C_SLAVE, &g_s_handle, g_eventMask);
+}
+
+int main(void)
+{
     lpuart_config_t uartConfig;
 
     BOARD_InitHardware();
@@ -89,7 +131,7 @@ int main(void)
     uartConfig.enableRx     = true;
     LPUART_Init(DEMO_LPUART, &uartConfig, DEMO_LPUART_CLK_FREQ);
     
-    uint8_t bootMsg[] = "\r\n[BOOT] Firmware initialized. Analyzer + Emulator Active.\r\n";
+    uint8_t bootMsg[] = "\r\n[BOOT] Firmware v1.0 Ready. Dynamic Analyzer + Fault Emulator.\r\n";
     LPUART_WriteBlocking(DEMO_LPUART, bootMsg, sizeof(bootMsg) - 1);
 
     /* --- 2. HARDWARE ROUTING & PULL-UPS --- */
@@ -104,40 +146,22 @@ int main(void)
 
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM2);
 
-    /* --- 3. INITIALIZE FC2 SLAVE --- */
-    LPI2C_SlaveGetDefaultConfig(&slaveConfig);
-    slaveConfig.address0 = I2C_MASTER_SLAVE_ADDR_7BIT;
-    LPI2C_SlaveInit(EXAMPLE_I2C_SLAVE, &slaveConfig, CLOCK_GetLPFlexCommClkFreq(2U));
-
+    /* --- 3. START IN ANALYZER MODE BY DEFAULT (Sniff 0x08 - 0x7E) --- */
     memset(g_slave_rx_buff, 0, sizeof(g_slave_rx_buff));
-    LPI2C_SlaveTransferCreateHandle(EXAMPLE_I2C_SLAVE, &g_s_handle, lpi2c_slave_callback, NULL);
-    
-    /* Enable Address Match, Receive (Master Write), Transmit (Master Read), and Completion */
-    uint32_t eventMask = kLPI2C_SlaveAddressMatchEvent | 
-                         kLPI2C_SlaveReceiveEvent | 
-                         kLPI2C_SlaveTransmitEvent | 
-                         kLPI2C_SlaveCompletionEvent;
-    LPI2C_SlaveTransferNonBlocking(EXAMPLE_I2C_SLAVE, &g_s_handle, eventMask);
+    Configure_I2C_Hardware(g_currentMode, g_targetAddr);
 
-    uint8_t readyMsg[] = "[READY] Listening on 0x7E (RX & Fault Injection TX enabled)...\r\n";
+    uint8_t readyMsg[] = "[READY] Mode: ANALYZER (Sniffing 0x08-0x7E) | Default Fault TX: FA CE B0 0C\r\n";
     LPUART_WriteBlocking(DEMO_LPUART, readyMsg, sizeof(readyMsg) - 1);
 
     while (1)
     {
+        /* --- A. CHECK FOR INCOMING I2C BUS TRANSACTIONS --- */
         if (g_SlaveCompletionFlag)
         {
             g_SlaveCompletionFlag = false;
 
             if (g_transferredCount > 0U)
             {
-                /* 
-                 * Frame Format:
-                 * Byte 0: 0xAA (SOF)
-                 * Byte 1: Payload Length (1 byte for 8-bit Addr+RW + transferred bytes)
-                 * Byte 2: Full 8-bit Address (Bits 7:1 = 7-bit Addr, Bit 0 = 1 for READ / 0 for WRITE)
-                 * Byte 3+: Transferred Data Bytes (either received from Master or injected by Emulator)
-                 * Last Byte: 0x55 (EOF)
-                 */
                 uint8_t frame_buffer[64];
                 uint8_t total_payload_len = (uint8_t)(g_transferredCount + 1U);
 
@@ -147,12 +171,10 @@ int main(void)
                 
                 if (g_isReadTransaction)
                 {
-                    /* Copy the bytes our Emulator injected onto the bus */
                     memcpy(&frame_buffer[3], (const void*)g_emulator_tx_buff, g_transferredCount);
                 }
                 else
                 {
-                    /* Copy the bytes the Master wrote to us */
                     memcpy(&frame_buffer[3], (const void*)g_slave_rx_buff, g_transferredCount);
                 }
 
@@ -162,7 +184,52 @@ int main(void)
 
             g_transferredCount = 0U;
             memset(g_slave_rx_buff, 0, sizeof(g_slave_rx_buff));
-            LPI2C_SlaveTransferNonBlocking(EXAMPLE_I2C_SLAVE, &g_s_handle, eventMask);
+            LPI2C_SlaveTransferNonBlocking(EXAMPLE_I2C_SLAVE, &g_s_handle, g_eventMask);
+        }
+
+        /* --- B. NON-BLOCKING CHECK FOR PC CONFIGURATION COMMANDS OVER UART --- */
+        if (kLPUART_RxDataRegFullFlag & LPUART_GetStatusFlags(DEMO_LPUART))
+        {
+            uint8_t rxByte = LPUART_ReadByte(DEMO_LPUART);
+
+            if (g_uart_cmd_idx == 0U)
+            {
+                if (rxByte == 0xBBU) /* Command SOF */
+                {
+                    g_uart_cmd_buff[g_uart_cmd_idx++] = rxByte;
+                }
+            }
+            else
+            {
+                g_uart_cmd_buff[g_uart_cmd_idx++] = rxByte;
+
+                if (g_uart_cmd_idx == CMD_FRAME_LENGTH)
+                {
+                    if (g_uart_cmd_buff[CMD_FRAME_LENGTH - 1U] == 0x55U) /* Valid Command EOF */
+                    {
+                        g_currentMode = g_uart_cmd_buff[1];
+                        g_targetAddr  = g_uart_cmd_buff[2] & 0x7FU;
+
+                        /* Update 4-byte Fault Injection Payload */
+                        g_emulator_tx_buff[0] = g_uart_cmd_buff[3];
+                        g_emulator_tx_buff[1] = g_uart_cmd_buff[4];
+                        g_emulator_tx_buff[2] = g_uart_cmd_buff[5];
+                        g_emulator_tx_buff[3] = g_uart_cmd_buff[6];
+
+                        Configure_I2C_Hardware(g_currentMode, g_targetAddr);
+
+                        char ackMsg[96];
+                        snprintf(ackMsg, sizeof(ackMsg),
+                                 "\r\n[CFG-ACK] Mode=%s | Addr=0x%02X | FaultPayload=%02X %02X %02X %02X\r\n",
+                                 (g_currentMode == 0U) ? "ANALYZER(0x08-0x7E)" : "EMULATOR",
+                                 g_targetAddr,
+                                 g_emulator_tx_buff[0], g_emulator_tx_buff[1],
+                                 g_emulator_tx_buff[2], g_emulator_tx_buff[3]);
+                        LPUART_WriteBlocking(DEMO_LPUART, (uint8_t *)ackMsg, strlen(ackMsg));
+                    }
+                    g_uart_cmd_idx = 0U;
+                }
+            }
         }
     }
 }
