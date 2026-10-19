@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1160</width>
+    <height>740</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Protocol Analyzer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* === MINIMALIST DARK INSTRUMENT THEME === */
+QMainWindow {
+    background-color: #0F172A;
+    color: #F8FAFC;
+}
+QWidget {
+    color: #CBD5E1;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 9.5pt;
+}
+QGroupBox {
+    background-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding: 12px 10px 10px 10px;
+    font-weight: 600;
+    color: #94A3B8;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    padding: 0 6px;
+    color: #38BDF8;
+}
+QPushButton, QComboBox, QLineEdit {
+    min-height: 28px;
+    max-height: 28px;
+    border-radius: 4px;
+    padding: 0px 10px;
+}
+QPushButton {
+    background-color: #334155;
+    color: #F8FAFC;
+    border: 1px solid #475569;
+    font-weight: 600;
+}
+QPushButton:hover {
+    background-color: #475569;
+    border-color: #64748B;
+}
+QPushButton:pressed {
+    background-color: #1E293B;
+}
+QPushButton:disabled {
+    background-color: #1E293B;
+    color: #64748B;
+    border-color: #334155;
+}
+QPushButton#btn_connect {
+    background-color: #0284C7;
+    border: 1px solid #38BDF8;
+}
+QPushButton#btn_connect:hover {
+    background-color: #0369A1;
+}
+QPushButton#btn_apply_config {
+    background-color: #059669;
+    border: 1px solid #34D399;
+}
+QPushButton#btn_apply_config:hover {
+    background-color: #047857;
+}
+QPushButton#btn_apply_config:disabled {
+    background-color: #1E293B;
+    color: #64748B;
+    border: 1px solid #334155;
+}
+QComboBox, QLineEdit {
+    background-color: #0F172A;
+    color: #F8FAFC;
+    border: 1px solid #475569;
+}
+QComboBox:focus, QLineEdit:focus {
+    border: 1px solid #38BDF8;
+}
+QComboBox:disabled, QLineEdit:disabled {
+    background-color: #162032;
+    color: #64748B;
+}
+QTableWidget {
+    background-color: #0F172A;
+    alternate-background-color: #162032;
+    color: #F8FAFC;
+    gridline-color: #1E293B;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    font-family: &quot;Consolas&quot;, monospace;
+    font-size: 10pt;
+}
+QHeaderView::section {
+    background-color: #1E293B;
+    color: #94A3B8;
+    font-weight: 600;
+    padding: 6px 8px;
+    border: none;
+    border-bottom: 2px solid #334155;
+    border-right: 1px solid #334155;
+}
+QTextEdit {
+    background-color: #090D16;
+    color: #34D399;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    font-family: &quot;Consolas&quot;, monospace;
+    font-size: 9.5pt;
+    padding: 4px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_main" stretch="0,0,5,1">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="leftMargin">
+     <number>16</number>
+    </property>
+    <property name="topMargin">
+     <number>12</number>
+    </property>
+    <property name="rightMargin">
+     <number>16</number>
+    </property>
+    <property name="bottomMargin">
+     <number>12</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_header">
+      <item>
+       <widget class="QLabel" name="lbl_app_title">
+        <property name="styleSheet">
+         <string notr="true">font-size: 13pt; font-weight: 600; color: #F8FAFC; letter-spacing: 0.5px;</string>
+        </property>
+        <property name="text">
+         <string>Protocol Analyzer &amp; Fault Emulator</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_header">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="lbl_conn_status">
+        <property name="minimumSize">
+         <size>
+          <width>160</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #3F1D24; color: #F87171; border: 1px solid #EF4444; border-radius: 4px; padding: 0px 12px; font-weight: 600;</string>
+        </property>
+        <property name="text">
+         <string>● DISCONNECTED</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_top_controls" stretch="2,3">
+      <property name="spacing">
+       <number>12</number>
+      </property>
+      <item>
+       <widget class="QGroupBox" name="groupBox_Connection">
+        <property name="title">
+         <string>Serial Interface</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_conn" columnstretch="0,1,0">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="lbl_port">
+           <property name="minimumSize">
+            <size>
+             <width>75</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Port:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="combo_port"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QPushButton" name="btn_refresh_ports">
+           <property name="minimumSize">
+            <size>
+             <width>95</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Refresh</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lbl_baud">
+           <property name="minimumSize">
+            <size>
+             <width>75</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Baud Rate:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="combo_baud">
+           <item>
+            <property name="text">
+             <string>115200</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>230400</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>9600</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QPushButton" name="btn_connect">
+           <property name="minimumSize">
+            <size>
+             <width>95</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Connect</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_Config">
+        <property name="title">
+         <string>Mode &amp;&amp; Fault Configuration</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_cfg" columnstretch="0,2,0,1,0">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="lbl_mode">
+           <property name="minimumSize">
+            <size>
+             <width>65</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Mode:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="combo_mode">
+           <item>
+            <property name="text">
+             <string>0: Bus Analyzer (Multi-Address)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1: Slave Emulator (Target Only)</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="lbl_target_addr">
+           <property name="minimumSize">
+            <size>
+             <width>90</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Target Addr:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="input_target_addr">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>0x7E</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QPushButton" name="btn_reset_config">
+           <property name="minimumSize">
+            <size>
+             <width>105</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Reset Default</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lbl_preset">
+           <property name="minimumSize">
+            <size>
+             <width>65</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Preset:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="combo_fault_presets">
+           <item>
+            <property name="text">
+             <string>Bit-Flip (BA AD F0 0D)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Stuck High (FF FF FF FF)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Stuck Low (00 00 00 00)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Alternating (AA 55 AA 55)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Default (FA CE B0 0C)</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="lbl_fault_bytes">
+           <property name="minimumSize">
+            <size>
+             <width>90</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Fault Payload:</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="input_fault_payload">
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>10</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>BA AD F0 0D</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="btn_apply_config">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>105</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Apply Config</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_Traffic">
+      <property name="title">
+       <string>Transaction Monitor</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_traffic">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_toolbar">
+         <property name="spacing">
+          <number>8</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="lbl_total_count">
+           <property name="minimumSize">
+            <size>
+             <width>115</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #0F172A; color: #38BDF8; border: 1px solid #334155; border-radius: 4px; padding: 0px 10px; font-weight: 600;</string>
+           </property>
+           <property name="text">
+            <string>Total: 0</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_write_count">
+           <property name="minimumSize">
+            <size>
+             <width>115</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #0F172A; color: #4ADE80; border: 1px solid #334155; border-radius: 4px; padding: 0px 10px; font-weight: 600;</string>
+           </property>
+           <property name="text">
+            <string>Writes: 0</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_read_count">
+           <property name="minimumSize">
+            <size>
+             <width>115</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #0F172A; color: #FB923C; border: 1px solid #334155; border-radius: 4px; padding: 0px 10px; font-weight: 600;</string>
+           </property>
+           <property name="text">
+            <string>Reads: 0</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_toolbar">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="lbl_filter">
+           <property name="text">
+            <string>Filter:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="combo_filter_addr">
+           <property name="minimumSize">
+            <size>
+             <width>140</width>
+             <height>30</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>All Addresses</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>0x18 (Sensor)</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>0x7E (Emulator)</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="chk_autoscroll">
+           <property name="text">
+            <string>Auto-Scroll</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_pause_stream">
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Pause</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_export_csv">
+           <property name="minimumSize">
+            <size>
+             <width>90</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Export CSV</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_clear_log">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="table_transactions">
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="columnCount">
+          <number>6</number>
+         </property>
+         <column>
+          <property name="text">
+           <string>#</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Timestamp</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Direction</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Address</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Length</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Hex Payload</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_Console">
+      <property name="title">
+       <string>System Log</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_console">
+       <item>
+        <widget class="QTextEdit" name="txt_console">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>105</height>
+          </size>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
