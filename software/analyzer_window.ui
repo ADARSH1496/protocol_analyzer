@@ -149,7 +149,7 @@ QTextEdit {
          <string notr="true">font-size: 13pt; font-weight: 600; color: #F8FAFC; letter-spacing: 0.5px;</string>
         </property>
         <property name="text">
-         <string>Protocol Analyzer &amp; Fault Emulator</string>
+         <string>Digital Bus Monitor &amp; Payload Fault Emulator</string>
         </property>
        </widget>
       </item>
