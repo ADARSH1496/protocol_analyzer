@@ -23,13 +23,19 @@ FAULT_PRESETS = {
 }
 
 
+def get_resource_path(filename: str) -> str:
+    """Resolves file path for both normal Python execution and PyInstaller .exe bundle."""
+    base_path = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, filename)
+
+
 class SerialBridgeWorker(QThread):
     """Background worker polling serial bridge (0xAA..0x55 frames & ASCII logs)."""
     transaction_signal = pyqtSignal(str, str, str, int, str)
     system_log_signal = pyqtSignal(str)
     connection_signal = pyqtSignal(bool, str)
 
-    def __init__(self, port: str, baudrate: int = 115200):
+    def __init__(self, port: str = "COM3", baudrate: int = 115200):
         super().__init__()
         self.port = port
         self.baudrate = baudrate
@@ -50,43 +56,7 @@ class SerialBridgeWorker(QThread):
             try:
                 if self.ser and self.ser.in_waiting > 0:
                     rx_buffer.extend(self.ser.read(self.ser.in_waiting))
-
-                    while len(rx_buffer) > 0:
-                        sof_idx = rx_buffer.find(b'\xAA')
-
-                        if sof_idx == -1:
-                            self._emit_ascii(rx_buffer)
-                            rx_buffer.clear()
-                            break
-
-                        if sof_idx > 0:
-                            self._emit_ascii(rx_buffer[:sof_idx])
-                            rx_buffer = rx_buffer[sof_idx:]
-
-                        if len(rx_buffer) < 3:
-                            break
-
-                        payload_len = rx_buffer[1]
-                        frame_len = payload_len + 3
-
-                        if len(rx_buffer) < frame_len:
-                            break
-
-                        if rx_buffer[frame_len - 1] == 0x55:
-                            payload = rx_buffer[2: 2 + payload_len]
-                            if payload_len >= 1:
-                                raw_addr_byte = payload[0]
-                                addr_7bit = f"0x{(raw_addr_byte >> 1):02X}"
-                                is_read = bool(raw_addr_byte & 0x01)
-                                direction = "READ (EMULATOR TX)" if is_read else "WRITE (MASTER TX)"
-                                data_bytes = payload[1:]
-                                data_hex = " ".join(f"{b:02X}" for b in data_bytes)
-                                ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
-
-                                self.transaction_signal.emit(ts, direction, addr_7bit, len(data_bytes), data_hex)
-                            rx_buffer = rx_buffer[frame_len:]
-                        else:
-                            rx_buffer.pop(0)
+                    self._process_rx_buffer(rx_buffer)
                 else:
                     time.sleep(0.005)
             except Exception as e:
@@ -96,6 +66,45 @@ class SerialBridgeWorker(QThread):
         if self.ser and self.ser.is_open:
             self.ser.close()
         self.connection_signal.emit(False, "Disconnected")
+
+    def _process_rx_buffer(self, rx_buffer: bytearray):
+        """Extracts 0xAA..0x55 binary frames and ASCII logs from rx_buffer in-place."""
+        while len(rx_buffer) > 0:
+            sof_idx = rx_buffer.find(b'\xAA')
+
+            if sof_idx == -1:
+                self._emit_ascii(rx_buffer)
+                rx_buffer.clear()
+                break
+
+            if sof_idx > 0:
+                self._emit_ascii(rx_buffer[:sof_idx])
+                del rx_buffer[:sof_idx]
+
+            if len(rx_buffer) < 3:
+                break
+
+            payload_len = rx_buffer[1]
+            frame_len = payload_len + 3
+
+            if len(rx_buffer) < frame_len:
+                break
+
+            if rx_buffer[frame_len - 1] == 0x55:
+                payload = rx_buffer[2: 2 + payload_len]
+                if payload_len >= 1:
+                    raw_addr_byte = payload[0]
+                    addr_7bit = f"0x{(raw_addr_byte >> 1):02X}"
+                    is_read = bool(raw_addr_byte & 0x01)
+                    direction = "READ (EMULATOR TX)" if is_read else "WRITE (MASTER TX)"
+                    data_bytes = payload[1:]
+                    data_hex = " ".join(f"{b:02X}" for b in data_bytes)
+                    ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+
+                    self.transaction_signal.emit(ts, direction, addr_7bit, len(data_bytes), data_hex)
+                del rx_buffer[:frame_len]
+            else:
+                rx_buffer.pop(0)
 
     def _emit_ascii(self, raw_bytes: bytearray):
         try:
@@ -108,11 +117,16 @@ class SerialBridgeWorker(QThread):
         except Exception:
             pass
 
+    @staticmethod
+    def build_config_frame(mode: int, target_addr: int, fault_bytes: list[int]) -> bytearray:
+        """Builds the 8-byte [0xBB, mode, addr_7bit, B0, B1, B2, B3, 0x55] command packet."""
+        b = (list(fault_bytes) + [0x00, 0x00, 0x00, 0x00])[:4]
+        return bytearray([0xBB, mode & 0xFF, target_addr & 0x7F, b[0], b[1], b[2], b[3], 0x55])
+
     def send_config_command(self, mode: int, target_addr: int, fault_bytes: list[int]) -> bool:
         if not self.ser or not self.ser.is_open:
             return False
-        b = (fault_bytes + [0x00, 0x00, 0x00, 0x00])[:4]
-        cmd_frame = bytearray([0xBB, mode & 0xFF, target_addr & 0x7F, b[0], b[1], b[2], b[3], 0x55])
+        cmd_frame = self.build_config_frame(mode, target_addr, fault_bytes)
         try:
             self.ser.write(cmd_frame)
             return True
@@ -128,7 +142,7 @@ class SerialBridgeWorker(QThread):
 class ProtocolAnalyzerApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.join(os.path.dirname(__file__), "analyzer_window.ui")
+        ui_path = get_resource_path("analyzer_window.ui")
         uic.loadUi(ui_path, self)
 
         self.worker = None
