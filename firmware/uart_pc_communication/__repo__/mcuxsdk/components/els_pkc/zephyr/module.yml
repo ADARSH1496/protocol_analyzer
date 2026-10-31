@@ -1,4 +1,0 @@
-name: els_pkc
-build:
-  cmake: zephyr/.
-  kconfig: zephyr/Kconfig

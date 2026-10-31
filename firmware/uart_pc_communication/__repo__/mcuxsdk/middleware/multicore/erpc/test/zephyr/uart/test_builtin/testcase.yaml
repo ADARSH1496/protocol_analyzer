@@ -1,8 +1,0 @@
-tests:
-  erpc.uart.builtin:
-    harness: pytest
-    tags:
-      - pytest
-    harness_config:
-      pytest_root:
-        - "../../../python_impl_tests/test_builtin/"

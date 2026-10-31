@@ -1,3 +1,0 @@
-menu "Device Configuration"
-rsource "../${device_root}/${soc_portfolio}/${soc_series}/${device}/Kconfig"
-endmenu

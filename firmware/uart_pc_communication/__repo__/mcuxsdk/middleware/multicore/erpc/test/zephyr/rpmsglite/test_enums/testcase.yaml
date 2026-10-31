@@ -1,4 +1,0 @@
-tests:
-  erpc.rpmsglite.enums:
-    sysbuild: true
-    harness: gtest

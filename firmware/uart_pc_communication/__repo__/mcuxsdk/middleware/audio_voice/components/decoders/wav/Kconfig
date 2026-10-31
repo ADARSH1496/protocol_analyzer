@@ -1,2 +1,0 @@
-config MCUX_COMPONENT_middleware.audio_voice.components.decoders.wav
-    bool "WAV decoder"
