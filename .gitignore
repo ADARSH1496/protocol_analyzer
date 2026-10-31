@@ -1,0 +1,22 @@
+# Python virtual environments & caches
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# PyInstaller & CD generated outputs (uploaded as CI Artifacts instead)
+build_pyinstaller/
+dist/
+build/
+*.spec
+release_package/
+software/reports/
+
+# Ignore the old experimental UART repo with the huge mcuxsdk clone
+firmware/uart_pc_communication/
+firmware/i2c_analyzer_firmware/debug/
+
+# Keep only the necessary source/config files in firmware, ignore heavy intermediate object files
+*.o
+*.d

@@ -1,0 +1,45 @@
+name: HIL CI-CT-CD Pipeline (NXP MCXN236 + Pico)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+    inputs:
+      force_flash:
+        description: 'Force LinkServer MCU flash even if C files did not change'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  hil-build-verify-package:
+    name: 4-Stage HIL Build, Test & Release
+    runs-on: self-hosted
+
+    steps:
+      - name: 1. Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: 2. Execute 4-Stage CI/CT/CD Pipeline on HIL Bench
+        shell: cmd
+        run: |
+          if "${{ github.event.inputs.force_flash }}" == "true" (
+            "C:\_git\_mcx\protocol_analyzer\software\.venv\Scripts\python.exe" software/run_pipeline.py --force-flash
+          ) else (
+            "C:\_git\_mcx\protocol_analyzer\software\.venv\Scripts\python.exe" software/run_pipeline.py
+          )
+
+      - name: 3. Upload Verified Release Package & HTML Test Certificate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: I2C-Protocol-Analyzer-Release-Bundle
+          path: |
+            release_package/I2C_Protocol_Analyzer.exe
+            release_package/i2c_analyzer_firmware.elf
+            release_package/validation_report.html
+            release_package/release_manifest.json
+            software/reports/validation_report.html
+          if-no-files-found: warn
