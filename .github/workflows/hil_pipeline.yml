@@ -13,6 +13,10 @@ on:
         default: 'false'
         type: boolean
 
+env:
+  PYTHONUTF8: "1"
+  PYTHONIOENCODING: "utf-8"
+
 jobs:
   hil-build-verify-package:
     name: 4-Stage HIL Build, Test & Release
@@ -21,6 +25,8 @@ jobs:
     steps:
       - name: 1. Checkout Repository Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: 2. Execute 4-Stage CI/CT/CD Pipeline on HIL Bench
         shell: cmd
