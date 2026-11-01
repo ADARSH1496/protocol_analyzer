@@ -5,7 +5,7 @@ __pycache__/
 .pytest_cache/
 *.pyc
 
-# PyInstaller & CD generated outputs (uploaded as CI Artifacts instead)
+# PyInstaller & generated outputs (uploaded as CI Artifacts instead)
 build_pyinstaller/
 dist/
 build/
