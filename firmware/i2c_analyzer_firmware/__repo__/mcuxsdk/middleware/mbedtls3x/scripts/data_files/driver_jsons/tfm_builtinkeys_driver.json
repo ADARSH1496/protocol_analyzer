@@ -1,7 +1,0 @@
-{
-    "prefix":       "tfm_builtin_key",
-    "type":         "transparent",
-    "mbedtls/h_condition":   "defined(PSA_CRYPTO_DRIVER_TFM_BUILTIN_KEY_LOADER)",
-    "headers":      ["tfm_builtin_key_loader.h"],
-    "capabilities": []
-}

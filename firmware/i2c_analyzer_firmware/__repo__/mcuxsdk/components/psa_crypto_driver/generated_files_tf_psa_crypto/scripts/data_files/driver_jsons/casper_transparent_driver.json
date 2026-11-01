@@ -1,7 +1,0 @@
-{
-    "prefix":       "casper",
-    "type":         "transparent",
-    "mbedtls/h_condition":   "defined(PSA_CRYPTO_DRIVER_CASPER)",
-    "headers":      ["casper.h"],
-    "capabilities": []
-}

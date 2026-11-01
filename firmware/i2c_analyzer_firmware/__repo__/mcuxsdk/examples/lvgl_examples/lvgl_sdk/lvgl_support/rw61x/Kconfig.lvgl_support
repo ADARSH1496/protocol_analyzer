@@ -1,2 +1,0 @@
-config MCUX_PRJSEG_module.board.lvgl
-    select MCUX_PRJSEG_module.board.display_support

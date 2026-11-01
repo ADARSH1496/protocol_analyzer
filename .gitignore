@@ -13,10 +13,11 @@ build/
 release_package/
 software/reports/
 
-# Ignore the old experimental UART repo with the huge mcuxsdk clone
+# Ignore vendor SDK clones & CMake build caches (kept locally on disk)
+__repo__/
 firmware/uart_pc_communication/
 firmware/i2c_analyzer_firmware/debug/
 
-# Keep only the necessary source/config files in firmware, ignore heavy intermediate object files
+# Ignore intermediate object files
 *.o
 *.d
